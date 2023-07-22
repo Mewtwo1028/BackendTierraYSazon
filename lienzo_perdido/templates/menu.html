@@ -7,10 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Spline+Sans&display=swap" rel="stylesheet" />
-    <link href="../css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <title>Menú</title>
 </head>
 
@@ -204,9 +202,9 @@
         <h2>© Copyright 2023 Tierra y sazón
           ​<br>
           Tepic | Nayarit</h2>
-          <img src="../img/twt.png" alt="twitter">
-          <img src="../img/fb.png" alt="facebook">
-          <img src="../img/ins.png" alt="">
+          <img src="{{ url_for('static', filename='img/twt.png')}}" alt="twitter">
+          <img src="{{ url_for('static', filename='img/fb.png')}}" alt="facebook">
+          <img src="{{ url_for('static', filename='img/ins.png')}}" alt="">
       </footer>
 </body>
 

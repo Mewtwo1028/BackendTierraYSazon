@@ -8,9 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Righteous&family=Work+Sans:wght@800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 <body>
@@ -27,24 +24,19 @@
         <div class="sidebar">
           <div class="logoDash"><img src="{{ url_for('static', filename='img/iconoDashboardTransparente.png') }}" alt=""></div>
           <ul class="menu">
+            <li >
+              <div id="contenido-derecha"><a href="{{ url_for('lienzo.dashboard') }}" id="opcion-exposiciones-culturales"><span >Menú</span></a></div>
+            </li>
             <li>
-              <div id="contenido-derecha">
-                <a href="{{ url_for('lienzo.dashboard') }}" id="opcion-exposiciones-culturales"><span >Menú</span></a>
-              </div>
+              <a href="dashboardEventos.html" id="opcion-exposiciones-culturales">  <div id="contenido-derecha"><span>Eventos</span></div></a>
+            </li>
+            <li>
+                <a href="dashboardExposiciones.html" id="opcion-exposiciones-culturales">  <div id="contenido-derecha"><span>Exposiciones</span></div></a>
             </li>
             <li class="selected">
-              <a href="{{ url_for('lienzo.dashboardEventos') }}" id="opcion-exposiciones-culturales">  
-                <div id="contenido-derecha"><span>Eventos</span></div></a>
+                <a href="#" id="opcion-exposiciones-culturales">  <div id="contenido-derecha"><span>Usuarios</span></div></a>
             </li>
-            <li>
-              <a href="{{ url_for('lienzo.dashboardExposiciones') }}" id="opcion-exposiciones-culturales">  
-                <div id="contenido-derecha"><span>Exposiciones</span></div></a>
-            </li>
-            <li>
-              <a href="{{ url_for('lienzo.dashboardExposiciones') }}" id="opcion-dashboard-usuarios"> 
-                CAMBIAR LA FUNCIÓN ANTERIOR CUANDO SE CREE
-                <div id="contenido-derecha"><span>Usuarios</span></div></a>
-            </li>
+            
           </ul>
         </div>
 
@@ -67,32 +59,31 @@
               </div>
             </div>
             <div class="table-container">
-              <table id="tblEventos" class="tblEventos">
+              <table>
                 <thead>
                   <tr>
-                    <th id="idEvento">ID</th>
-                    <th>Descripción</th>
-                    <th>Fecha</th>
-                    <th>Imagen</th>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Pass</th>
                   </tr>
-                </thead>
-                <tbody><!-- jalar datos del json -->
+                  <!-- jalar datos del json -->
+                <tbody>
                   <tr>
                     <td>1</td>
-                    <td>Banda Cohuich. Una de las bandas indígenas más populares en México</td>
+                    <td>Exposición de cultura Maya</td>
                     <td>24/07/2023</td>
-                    <td><img src="../img/cohuich.jpeg" alt="" height="50" width="75"></td>
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>Venado Azul. Una de las bandas indígenas más populares en México</td>
+                    <td>Exposición de cultura Wixárica</td>
                     <td>25/07/2023</td>
-                    <td><img src="../img/venado azul.jpeg" alt="" height="50" width="75"></td>
                   </tr>
                 </tbody>
+                </thead>
               </table>
             </div>
-            </div>
+          </div>
+
         </div>
         <div id="formulario INSERT" class="formulario-visible" hidden>
           <form class="formularioInsert" method="POST" enctype="multipart/form-data">
@@ -105,6 +96,11 @@
               <input type="date" id="fecha" name="fecha" required>
             </div>
             <div>
+              <label for="cultura">Cultura:</label>
+              <input type="text" id="cultura" name="cultura" required>
+            </div>
+            <div>
+              <input type="hidden" name="accion" value="insertar">
               <button type="submit">Insertar</button>
             </div>
           </form>
@@ -113,14 +109,21 @@
         <div id="formulario Update" class="formulario-visible" hidden>
           <form class="formularioInsert" method="POST" enctype="multipart/form-data">
             <div>
+              <label for="id">ID:</label>
+              <input type="text" id="txtid" disabled>
+          </div>
+            <div>
               <label for="descripcion">Descripción:</label>
-              <input type="text" id="descripcion" name="descripcion" required>
+              <input type="text" id="descripcion" name="descripcion">
             </div>
             <div>
               <label for="fecha">Fecha:</label>
-              <input type="date" id="fecha" name="fecha" required>
+              <input type="date" id="fecha" name="fecha">
             </div>
             <div>
+              <label for="cultura">Cultura:</label>
+              <input type="text" id="cultura" name="cultura">
+            </div>
             <div>
               <input type="hidden" name="accion" value="modificar">
               <button type="submit">Actualizar</button>

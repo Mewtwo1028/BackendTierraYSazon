@@ -1,0 +1,189 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: black;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/vector-pre-hispanic-icons.jpg);
+  background-size: 300px;
+  background-repeat: repeat;
+  
+}
+
+.seccionUno{
+  position: relative;
+  margin: 0 10%;
+  margin-top: 120px;
+  height: 50vh;
+  background-color: white;
+  display: grid;
+}
+
+.contenedor{
+  margin: 0 10%;
+  background-color: white;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.seccionUno p{
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  padding: 0 60px;
+  text-align: justify;
+}
+
+.cuadroNegro{
+  height: 250px;
+  width: 100%;
+  background: black;
+  place-items: center;
+  display: grid;
+}
+
+.cuadroNegro h2{
+  font-family: 'Squada One';
+  font-size: 128px;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+}
+
+.menulist{
+  list-style: none;
+  display: flex;
+  word-spacing: 100px;
+}
+
+.menulist a{
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.menulist a:hover{
+  color: rgb(130, 126, 126);
+  text-decoration: none;
+}
+
+.menulist span{
+  color: white;
+}
+
+.bannerEntradas{
+  height: 250px;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/v68_13.png);
+  background-size: cover;
+  background-position: center;
+  place-items: center;
+  display: grid;
+}
+
+.bannerPlatillos{
+  height: 250px;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/v68_17.png);
+  background-size: cover;
+  background-position: center;
+  place-items: center;
+  display: grid;
+}
+
+.bannerBebidas{
+  height: 250px;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/v68_20.png);
+  background-size: cover;
+  background-position: center;
+  place-items: center;
+  display: grid;
+}
+
+.bannerPostres{
+  height: 250px;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/v68_77.png);
+  place-items: center;
+  display: grid;
+}
+
+h3{
+  font-family: 'Wellfleet', cursive;
+  font-weight: 400;
+  font-size:8vw;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+}
+
+.entradasContenido{
+  margin: 5% 10%;
+}
+
+.platillosContenido{
+  margin: 5% 10%;
+}
+
+.bebidasContenido{
+  margin: 5% 10%;
+}
+
+.postresContenido{
+  margin: 5% 10%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.menu li:last-child {
+  border-bottom: none;
+}
+
+.nombre-platillo {
+  font-weight: bold;
+}
+
+.precio {
+  color: #8b0000; /* Color rojo oscuro */
+}
+
+footer{
+  color: white;
+  background-color: black;
+  text-align: center;
+}
+
+footer h2{
+  color: whitesmoke;
+  align-items: center;
+}
+
+footer img{
+  height: 3rem;
+  width: 3rem;
+}

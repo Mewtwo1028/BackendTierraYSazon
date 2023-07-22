@@ -1,0 +1,137 @@
+html{
+    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Poppins';
+    font-weight: 400rem;
+}
+
+form input{
+    border-radius: 10px;
+    width: 25rem;
+    height: 2.5rem;
+    background-color: #DEDEDE;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.rect{
+    align-items: flex-end;
+    width: 30rem; 
+    height: 120rem; 
+    position: relative; 
+    background: white;
+    left: 90rem;
+    text-align: center;
+    bottom: 3rem;
+    background-attachment: fixed;
+}
+
+.logo{
+    width: 524px; 
+    height: 73.58px; 
+    text-align: center; 
+    color: black; 
+    font-size: 48px; 
+    font-family: Poor Story; 
+    font-weight: 400; 
+}
+
+*,::before,::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+}
+
+.left-form{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    opacity: 50%;
+    background-image: url("../img/login.jpg");
+    background-size: cover;
+    /* background-attachment:scroll; */
+}
+
+.right-form{
+    font-family: 'Poppins';
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    float: left;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.right-form img{
+    width: 300px;
+}
+
+
+.right-form img:hover{
+    cursor: pointer;
+}
+
+.right-form form{
+    height: 100%;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-form h2{
+    font-size: 2em;
+    margin: 20px;
+    font-weight: bold;
+}
+
+.right-form form > input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+.right-form label{
+    width: 100%;
+}
+
+.right-form .btn{
+    text-align: center;
+    width: 100%;
+    background-color: #58B649;
+    color: white;
+    border: none;
+    font-size: 18px;
+    margin-top: 30px;
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+.right-form .btn:hover{
+    cursor: pointer;
+    background-color: #85D378;
+}
+.alerta {
+    padding: 1rem;
+    text-align: center;
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+.alerta.error {
+    background-color: rgb(162, 0, 0);
+}
+.alerta.exito {
+    background-color: rgb(7, 145, 7);;
+}
