@@ -6,8 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/exposiciones.css">
-    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/exposiciones.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
@@ -16,19 +16,15 @@
 <body>
     <header class="oscuro">
         <div class="logo">
-            <a href="../index.html"><img src="../img/iconoPrincipal.png" alt=""></a>
+            <a href="../index.html"><img src="{{ url_for('static', filename='img/iconoPrincipal.png')}}" alt=""></a>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="../html/menu.html">Menú</a></li>
-                <li><a href="exposicionesCulturales.html">Exposiciones culturales</a></li>
-                <li><a href="#" class="neg">Eventos musicales</a></li>
-                <a href="login.html" class="btnA"><button>Ingresar</button></a>
-                <li><a href="about.html">Acerca de</a></li>
-                <li>
-                    <a href="dashboardUsuarios.html" id="opcion-dashboard-usuarios">  
-                      <div id="contenido-derecha"><span>Usuarios</span></div></a>
-                  </li>
+                <li><a href="{{ url_for('lienzo.menu') }}">Menú</a></li>
+                <li><a href="{{ url_for('lienzo.exposicionesCulturales') }}">Exposiciones culturales</a></li>
+                <li><a href="{{ url_for('lienzo.eventosMusicales') }}" class="neg">Eventos musicales</a></li>
+                <a href="{{ url_for('auth.login') }}" class="btnA"><button>Ingresar</button></a>
+                <li><a href="{{ url_for('lienzo.about') }}">Acerca de</a></li>
             </ul>
         </nav>
     </header>
@@ -38,7 +34,7 @@
             <h2>Eventos musicales</h2>
         </div>
         <div class="intro">
-            <img src="../img/banda Venado azul.jpg" alt="" height="300" width="300">
+            <img src="{{ url_for('static', filename='img/Banda Venado azul.jpg')}}" alt="" height="300" width="300">
             <p>Sumérgete en un viaje musical sin igual mientras exploras la riqueza de las culturas prehispánicas en nuestros eventos musicales indígenas. Aquí, la música se fusiona con la historia y la cultura para ofrecerte una experiencia inigualable llena de ritmos, sonidos y conocimientos. Además de los conciertos, también ofrecemos charlas y conferencias impartidas por expertos en historia y arqueología prehispánica. Aprenderás sobre los descubrimientos más recientes, las teorías arqueológicas y las tradiciones únicas que dieron forma a estas culturas extraordinarias. Nuestro objetivo es no solo deleitar tus oídos, sino también expandir tu conocimiento y apreciación por el legado prehispánico. ¡Únete a nosotros en estos emocionantes eventos musicales que celebran la herencia indígena mexicana!</p>
         </div>
     </section>
@@ -51,7 +47,7 @@
             </div>
             <h3 id="titulo">Banda Cohuich</h3>
             <p itemid="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dignissimos voluptatum recusandae nemo labore architecto sapiente sit rerum, pariatur enim quis quia eligendi incidunt modi repudiandae, tempore, exercitationem adipisci optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia libero perferendis in numquam ex itaque vel laboriosam quis cumque, quasi rem quidem neque est, at facilis sequi, nostrum aliquam. At? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ut, saepe praesentium eaque, voluptatum in voluptatibus, voluptatem est ipsa mollitia placeat beatae cum expedita nostrum dignissimos sunt rerum nihil deleniti.</p>
-            <div class="imagen" id="imagen"><img src="../img/banda cohuich.webp" alt=""></div>
+            <div class="imagen" id="imagen"><img src="{{ url_for('static', filename='img/banda cohuich.webp')}}" alt=""></div>
         </div>
         
     </section>
@@ -59,9 +55,9 @@
         <h2>© Copyright 2023 Tierra y sazón
           ​<br>
           Tepic | Nayarit</h2>
-        <img src="../img/twt.png" alt="twitter" height="50">
-        <img src="../img/fb.png" alt="facebook" height="50">
-        <img src="../img/ins.png" alt="instagram" height="50">
+          <img src="{{ url_for('static', filename='img/twt.png')}}" alt="twitter" height="50">
+          <img src="{{ url_for('static', filename='img/fb.png')}}" alt="facebook" height="50">
+          <img src="{{ url_for('static', filename='img/ins.png')}}" alt=""  height="50">
       </footer>
     
       <script type="text/javascript">

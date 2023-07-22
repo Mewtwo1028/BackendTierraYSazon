@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/about.css">
-    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
@@ -20,12 +20,12 @@
         </div>
         <nav>
           <ul class="nav-links">
-            <li><a href="menu.html">Menú</a></li>
-            <li><a href="exposicionesCulturales.html">Exposiciones culturales</a></li>
-            <li><a href="eventosMusicales.html">Eventos musicales</a></li>
-            <a href="login.html" class="btnA"><button>Ingresar</button></a>
-            <li><a href="about.html" class="neg">Acerca de</a></li>
-          </ul>
+            <li><a href="{{ url_for('lienzo.menu') }}">Menú</a></li>
+            <li><a href="{{ url_for('lienzo.exposicionesCulturales') }}">Exposiciones culturales</a></li>
+            <li><a href="{{ url_for('lienzo.eventosMusicales') }}" >Eventos musicales</a></li>
+            <a href="{{ url_for('auth.login') }}" class="btnA"><button>Ingresar</button></a>
+            <li><a href="{{ url_for('lienzo.about') }}" class="neg"> Acerca de</a></li>
+        </ul>
         </nav>
       </header>
     
@@ -74,9 +74,9 @@
         <h2>© Copyright 2023 Tierra y sazón
           ​<br>
           Tepic | Nayarit</h2>
-        <img src="../img/twt.png" alt="twitter" height="50">
-        <img src="../img/fb.png" alt="facebook" height="50">
-        <img src="../img/ins.png" alt="instagram" height="50">
+          <img src="{{ url_for('static', filename='img/twt.png')}}" alt="twitter" height="50">
+          <img src="{{ url_for('static', filename='img/fb.png')}}" alt="facebook" height="50">
+          <img src="{{ url_for('static', filename='img/ins.png')}}" alt=""  height="50">
       </footer>
 </body>
 </html>

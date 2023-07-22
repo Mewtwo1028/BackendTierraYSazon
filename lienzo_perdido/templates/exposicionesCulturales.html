@@ -6,8 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/exposiciones.css">
-    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/exposiciones.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
@@ -16,15 +16,15 @@
 <body>
     <header class="oscuro">
         <div class="logo">
-            <a href="../index.html"><img src="../img/iconoPrincipal.png" alt=""></a>
+            <a href="../index.html"><img src="{{ url_for('static', filename='img/iconoPrincipal.png')}}" alt=""></a>
         </div>
         <nav>
             <ul class="nav-links">
-                <li><a href="../html/menu.html">Menú</a></li>
+                <li><a href="{{ url_for('lienzo.menu') }}">Menú</a></li>
                 <li><a href="#" class="neg">Exposiciones culturales</a></li>
-                <li><a href="eventosMusicales.html">Eventos musicales</a></li>
-                <a href="login.html" class="btnA"><button>Ingresar</button></a>
-                <li><a href="about.html">Acerca de</a></li>
+                <li><a href="{{ url_for('lienzo.eventosMusicales') }}">Eventos musicales</a></li>
+                <a href="{{ url_for('auth.login') }}" class="btnA"><button>Ingresar</button></a>
+                <li><a href="{{ url_for('lienzo.about') }}">Acerca de</a></li>
             </ul>
         </nav>
     </header>
@@ -34,7 +34,7 @@
             <h2>Exposiciones culturales</h2>
         </div>
         <div class="intro">
-            <img src="../img/cultura.jpg" alt="">
+            <img src="{{ url_for('static', filename='img/cultura.jpg')}}" alt="">
             <p>Sumérgete en un viaje culinario sin igual mientras exploras la riqueza de las culturas prehispánicas en nuestro restaurante único. Aquí, la gastronomía se fusiona con la historia y la cultura para ofrecerte una experiencia inigualable llena de sabores, colores y conocimientos. Además de las exposiciones, también ofrecemos charlas y conferencias impartidas por expertos en historia y arqueología prehispánica. Aprenderás sobre los descubrimientos más recientes, las teorías arqueológicas y las costumbres únicas que dieron forma a estas culturas extraordinarias. Nuestro objetivo es no solo deleitar tu paladar, sino también expandir tu conocimiento y apreciación por el legado prehispánico.</p>
         </div>
     </section>
@@ -47,7 +47,7 @@
             </div>
             <h3 id="titulo">La cultura Maya</h3>
             <p itemid="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dignissimos voluptatum recusandae nemo labore architecto sapiente sit rerum, pariatur enim quis quia eligendi incidunt modi repudiandae, tempore, exercitationem adipisci optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia libero perferendis in numquam ex itaque vel laboriosam quis cumque, quasi rem quidem neque est, at facilis sequi, nostrum aliquam. At? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ut, saepe praesentium eaque, voluptatum in voluptatibus, voluptatem est ipsa mollitia placeat beatae cum expedita nostrum dignissimos sunt rerum nihil deleniti.</p>
-            <div class="imagen" id="imagen"><img src="../img/Mayas-Face.png" alt=""></div>
+            <div class="imagen" id="imagen"><img src="{{ url_for('static', filename='img/Mayas-Face.png')}}" alt=""></div>
         </div>
         
         <div class="expo">
@@ -57,16 +57,16 @@
                 </div>
             <h3>La cultura Mexica</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque porro explicabo sed repellat quaerat. Tempore nobis veniam libero laborum vel error quidem itaque. Nisi aliquam veniam delectus distinctio nam quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste debitis culpa aperiam, tenetur, nulla error odit cum harum nesciunt delectus vitae eaque. Architecto explicabo nesciunt quia vitae minima, exercitationem quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quam quisquam exercitationem nobis ullam assumenda vel provident totam numquam sunt adipisci velit harum aliquid itaque labore pariatur, nisi commodi facere!</p>
-            <div class="imagen" id="imagen"><img src="../img/MEXICAS.jpg" alt=""></div>
+            <div class="imagen" id="imagen"><img src="{{ url_for('static', filename='img/MEXICAS.jpg')}}" alt=""></div>
         </div>
     </section>
     <footer>
         <h2>© Copyright 2023 Tierra y sazón
           ​<br>
           Tepic | Nayarit</h2>
-          <img src="../img/twt.png" alt="twitter" height="50">
-          <img src="../img/fb.png" alt="facebook" height="50">
-          <img src="../img/ins.png" alt="instagram" height="50">
+          <img src="{{ url_for('static', filename='img/twt.png')}}" alt="twitter" height="50">
+          <img src="{{ url_for('static', filename='img/fb.png')}}" alt="facebook" height="50">
+          <img src="{{ url_for('static', filename='img/ins.png')}}" alt=""  height="50">
       </footer>
     
       <script type="text/javascript">
