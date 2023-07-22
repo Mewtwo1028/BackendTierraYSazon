@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/exposiciones.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <title>Eventos musicales</title>
+</head>
+<body>
+    <header class="oscuro">
+        <div class="logo">
+            <a href="../index.html"><img src="../img/iconoPrincipal.png" alt=""></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../html/menu.html">Menú</a></li>
+                <li><a href="exposicionesCulturales.html" class="neg">Exposiciones culturales</a></li>
+                <li><a href="#">Eventos musicales</a></li>
+                <a href="login.html" class="btnA"><button>Ingresar</button></a>
+                <li><a href="about.html">Acerca de</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="seccionUno">
+        <div class="cuadroNegro">
+            <h2>Eventos musicales</h2>
+        </div>
+        <div class="intro">
+            <img src="../img/banda Venado azul.jpg" alt="" height="300" width="300">
+            <p>Sumérgete en un viaje musical sin igual mientras exploras la riqueza de las culturas prehispánicas en nuestros eventos musicales indígenas. Aquí, la música se fusiona con la historia y la cultura para ofrecerte una experiencia inigualable llena de ritmos, sonidos y conocimientos. Además de los conciertos, también ofrecemos charlas y conferencias impartidas por expertos en historia y arqueología prehispánica. Aprenderás sobre los descubrimientos más recientes, las teorías arqueológicas y las tradiciones únicas que dieron forma a estas culturas extraordinarias. Nuestro objetivo es no solo deleitar tus oídos, sino también expandir tu conocimiento y apreciación por el legado prehispánico. ¡Únete a nosotros en estos emocionantes eventos musicales que celebran la herencia indígena mexicana!</p>
+        </div>
+    </section>
+
+    <section class="seccionDos">
+        <div class="expo">
+        <div class="linea"></div>
+            <div class="alinear">
+                <h4>Fecha: </h4> <p id="fecha" class="fecha">18 de Agosto sólo en cines</p>
+            </div>
+            <h3 id="titulo">Banda Cohuich</h3>
+            <p itemid="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dignissimos voluptatum recusandae nemo labore architecto sapiente sit rerum, pariatur enim quis quia eligendi incidunt modi repudiandae, tempore, exercitationem adipisci optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia libero perferendis in numquam ex itaque vel laboriosam quis cumque, quasi rem quidem neque est, at facilis sequi, nostrum aliquam. At? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ut, saepe praesentium eaque, voluptatum in voluptatibus, voluptatem est ipsa mollitia placeat beatae cum expedita nostrum dignissimos sunt rerum nihil deleniti.</p>
+            <div class="imagen" id="imagen"><img src="../img/banda cohuich.webp" alt=""></div>
+        </div>
+        
+    </section>
+    <footer>
+        <h2>© Copyright 2023 Tierra y sazón
+          ​<br>
+          Tepic | Nayarit</h2>
+        <img src="../img/twt.png" alt="twitter" height="50">
+        <img src="../img/fb.png" alt="facebook" height="50">
+        <img src="../img/ins.png" alt="instagram" height="50">
+      </footer>
+    
+      <script type="text/javascript">
+        window.addEventListener("scroll", function () {
+          var header = document.querySelector("header");
+          header.classList.toggle("abajo", window.scrollY > 0);
+        })
+      </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  <title>Tierra y sazón</title>
+</head>
+
+<body style="box-sizing: border-box; margin: 0 auto">
+
+  <header id="header" class="header">
+    <div class="logo">
+      <img src="img/iconoPrincipalTransparente.png" alt="">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="html/menu.html">Menú</a></li>
+        <li><a href="html/exposicionesCulturales.html">Exposiciones culturales</a></li>
+        <li><a href="html/eventosMusicales.html">Eventos musicales</a></li>
+        <a href="{{ url_for('auth.login') }}" class="btnA"><button>Ingresar</button></a>
+        <li><a href="html/about.html">Acerca de</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="seccionUno">
+    <div class="texto">
+
+      <h1 class="frasePrincipal">Donde la gastronomía y <br>la cultura se fusionan</h1>
+      <h2 class="fraseSecundaria">Descubre sabores globales, eventos locales</h2>
+
+      <div class="btn">
+        <a class="btnMenu" href="html/menu.html">Menú</a>
+      </div>
+
+    </div>
+
+    <div class="fondo">
+      <div class="imagen">
+
+      </div>
+    </div>
+
+  </section>
+
+  <section class="seccionDos">
+
+    <img class="linea" src="img/LíneaLogo.png" alt="">
+
+    <div class="texto">
+      Disfruta de nuestra varidad de:
+    </div>
+
+    <p>Bebidas Platillos Postres</p>
+
+    <div class="imagenes">
+      <img class="img" src="img/bebidaIcon.png" alt="">
+      <img class="img" src="img/comidaIcono.png" alt="">
+      <img class="img" src="img/postreIcono.png" alt="">
+    </div>
+
+    <div class="fondo">
+
+    </div>
+  </section>
+
+  <section class="seccionTres">
+    <div class="blanco">
+      <h2>¿Qué presentamos?</h2>
+
+      <section class="exposiciones">
+        <div class="fila">
+
+          <div class="columna">
+            <div class="imagen">
+              Pirámide maya
+            </div>
+          </div>
+
+          <div class="columna">
+            <div class="texto">
+              <h3>Exposiciones</h3>
+              <br>
+              <p>Sumérgete en un viaje culinario sin igual mientras exploras la riqueza de las culturas prehispánicas en
+                nuestro restaurante único. Aquí, la gastronomía se fusiona con la historia y la cultura para ofrecerte
+                una experiencia inigualable llena de sabores, colores y conocimientos. Además de las exposiciones,
+                también ofrecemos charlas y conferencias impartidas por expertos en historia y arqueología prehispánica.
+                Aprenderás sobre los descubrimientos más recientes, las teorías arqueológicas y las costumbres únicas
+                que dieron forma a estas culturas extraordinarias. Nuestro objetivo es no solo deleitar tu paladar, sino
+                también expandir tu conocimiento y apreciación por el legado prehispánico.</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="eventos">
+        <div class="fila">
+          <div class="columna">
+            <div class="texto">
+              <h3>Eventos</h3>
+              <br>
+              <p>Nos enorgullece dar la bienvenida a talentosos músicos locales que, con sus interpretaciones únicas y
+                originales, nos transportan a través de melodías que llenan el ambiente de emoción y alegría. Desde
+                artistas solistas hasta grupos y bandas, cada evento musical en nuestro restaurante es una oportunidad
+                para descubrir nuevas voces y sonidos que enriquecerán tu experiencia gastronómica. Nuestro escenario se
+                convierte en el lienzo donde los autores locales comparten su pasión y su arte. Puedes disfrutar de una
+                variedad de géneros musicales, desde jazz y blues hasta música folk y contemporánea. Cada evento está
+                cuidadosamente seleccionado para ofrecerte una mezcla diversa de estilos que reflejan la vibrante escena
+                musical de nuestra comunidad.</p>
+            </div>
+          </div>
+
+          <div class="columna">
+            <div class="imagen">
+              blue
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section class="seccionCuatro">
+    <div class="verdeMexa"><img src="img/dgn.png" alt=""></div>
+  </section>
+
+  <footer>
+    <h2>© Copyright 2023 Tierra y sazón
+      ​<br>
+      Tepic | Nayarit</h2>
+    <img src="img/twt.png" alt="twitter">
+    <img src="img/fb.png" alt="facebook">
+    <img src="img/ins.png" alt="">
+  </footer>
+
+  <script type="text/javascript">
+    window.addEventListener("scroll", function () {
+      var header = document.querySelector("header");
+      header.classList.toggle("abajo", window.scrollY > 0);
+    })
+  </script>
+
+</body>
+
+</html>

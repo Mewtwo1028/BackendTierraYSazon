@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Righteous&family=Work+Sans:wght@800&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+    <header class="oscuro">
+        <div class="logo">
+            <a href="../index.html"><img src="../img/iconoPrincipal.png" alt=""></a>
+        </div>
+        <a href="../html/login.html" class="btnA"><button>Cerrar sesión</button></a>
+    </header>
+
+    <section class="principal">
+      <div class="cuadro">
+
+        <div class="sidebar">
+          <div class="logoDash"><img src="../img/iconoDashboardTransparente.png" alt=""></div>
+          <ul class="menu">
+            <li >
+              <div id="contenido-derecha"><a href="dashboard.html" id="opcion-exposiciones-culturales"><span >Menú</span></a></div>
+            </li>
+            <li>
+              <a href="dashboardEventos.html" id="opcion-exposiciones-culturales">  <div id="contenido-derecha"><span>Eventos</span></div></a>
+            </li>
+            <li class="selected">
+                <a href="dashboardExposiciones.html" id="opcion-exposiciones-culturales">  <div id="contenido-derecha"><span>Exposiciones</span></div></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="main--content">
+          <div class="header-wrapper">
+            <div class="header--title">
+              <span>Usuario</span>
+              <h2>Administrador</h2>
+            </div>
+
+          </div>
+
+          <div class="tabular--wrapper">
+            <div class="main--title">
+              <div class="botones">
+                <button>Leer</button>
+                <button id="toggleButton" onclick="toggleFormInsert()">Agregar</button>
+                <button id="toggleButton" onclick="toggleFormUpdate()">Modificar</button>
+                <button id="toggleButton" onclick="toggleFormDelete()" class="eliminar">Eliminar</button>
+              </div>
+            </div>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Fecha</th>
+                    <th>Imagen</th>
+                    <th>Cultura</th>
+                  </tr>
+                  <!-- jalar datos del json -->
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Exposición de cultura Maya</td>
+                    <td>24/07/2023</td>
+                    <td><img src="../img/maya.jpeg" alt="" height="50" width="75"></td>
+                    <td>Maya</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Exposición de cultura Wixárica</td>
+                    <td>25/07/2023</td>
+                    <td><img src="../img/wixarica.jpeg" alt="" height="50" width="75"></td>
+                    <td>Wixárica</td>
+                  </tr>
+                </tbody>
+                </thead>
+              </table>
+            </div>
+          </div>
+
+        </div>
+        <div id="formulario INSERT" class="formulario-visible" hidden>
+          <form class="formularioInsert" action="/guardar_datos" method="POST" enctype="multipart/form-data">
+            <div>
+              <label for="descripcion">Descripción:</label>
+              <input type="text" id="descripcion" name="descripcion" required>
+            </div>
+            <div>
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" name="fecha" required>
+            </div>
+            <div>
+              <label for="cultura">Cultura:</label>
+              <input type="text" id="cultura" name="cultura" required>
+            </div>
+            <div>
+              <button type="submit">Insertar</button>
+            </div>
+          </form>
+        </div>
+    
+        <div id="formulario Update" class="formulario-visible" hidden>
+          <form class="formularioInsert" action="/modificar_datos" method="POST" enctype="multipart/form-data">
+            <div>
+              <label for="id">ID:</label>
+              <input type="text" id="txtid" disabled>
+          </div>
+            <div>
+              <label for="descripcion">Descripción:</label>
+              <input type="text" id="descripcion" name="descripcion">
+            </div>
+            <div>
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" name="fecha">
+            </div>
+            <div>
+              <label for="cultura">Cultura:</label>
+              <input type="text" id="cultura" name="cultura">
+            </div>
+            <div>
+              <button type="submit">Actualizar</button>
+            </div>
+          </form>
+        </div>
+    
+        <div id="formulario Delete" class="formulario-visible" hidden>
+          <form class="formularioDelete" action="/eliminar_datos" method="POST" enctype="multipart/form-data">
+            <div>
+              <label for="id">ID:</label>
+              <input type="text" id="id" name="id" required>
+            </div>
+            
+              <button type="submit" class="eliminar">Eliminar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

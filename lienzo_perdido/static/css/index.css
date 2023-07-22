@@ -1,0 +1,379 @@
+/* html {
+  background-image: url("../img/fondo.png");
+  background-color: cornsilk;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+} */
+
+.Rectangle7 {
+  width: 226px;
+  height: 59px;
+  position: absolute;
+  bottom: 25rem;
+  left: 0;
+  background: white;
+  border-radius: 20px;
+}
+
+.variedad {
+  background-image: url("../img/ofrecemos.png");
+  opacity: 1;
+  background-size: cover;
+  width: 120rem;
+  background-repeat: no-repeat;
+  height: 40rem;
+}
+
+.verdecito_UwU{
+  background-color: #C6FFDD;
+  height: 132rem;
+  width: 120rem;
+  align-items: center;
+  align-content: center;
+  /* margin-top: 3rem; */
+}
+.presentamos{
+  /* margin-top: 3rem; */
+  background-color: aliceblue;
+  height: 128rem;
+  width: 100rem;
+  display: flex;
+  position: absolute;
+  left: 37rem;
+}
+.presentamos h2{
+  color: rgb(0, 0, 0);
+  padding-left: 20rem;
+  font-size: 7rem;
+  font-weight: bold;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+
+.uno{
+  right: 45rem;
+  top: 30rem;
+}
+.dos{
+  right: 67rem;
+  top: 80rem;
+}
+
+.verdeMexa{
+  background-image: url("../img/gradiente.png");
+  width: 100%;
+  /* width: 120rem;
+  height: 80rem;
+  background-repeat: repeat-x;
+  top: 500rem; */
+}
+/* footer{
+  margin-bottom: 50rem;
+  top: 10rem;
+  background-color: black;
+  width: 120rem;
+  height: 10rem;
+   
+}*/
+footer h2{
+  color: whitesmoke;
+  align-items: center;
+}
+
+footer img{
+  height: 3rem;
+  width: 3rem;
+}
+/*--------------------------------------------*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+body{
+  background-color: black;
+}
+
+.seccionUno{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.seccionUno .fondo{
+  display: grid;
+  width: 100%;
+  height: 100%;
+  filter:alpha(opacity=20);
+  -moz-opacity:0.2;
+  opacity: 0.35;
+  padding:10px;
+  background: url(../img/BBQ-food-meat-sauce_2880x1800.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment:scroll;
+}
+
+/* .seccionUno .fondo .imagen{
+
+  transform: scale(1.15);
+  pointer-events: none;
+  user-select: none;
+  animation: smoothScale 7s linear forwards;
+  z-index: -1;
+}
+
+@keyframes smoothScale {
+  0% {transform: scale(1);}
+  100% {transform: scale(1.15);}
+} */
+
+.seccionUno .texto h1{
+  background-color: transparent;
+  position: absolute;
+  z-index: 2;
+  padding:200px;  
+  color: white;
+  width: 100%
+}
+
+.seccionUno .texto h2{
+  background-color: transparent;
+  position: absolute;
+  z-index: 2;
+  padding:350px;  
+  color: white;
+  width: 100%
+}
+
+.seccionUno .texto .btn{
+  z-index: 9;
+  background-color: white;
+  /* centrar vertical y horizontalmente */
+  position: absolute;
+  top: 80%;
+  left: 45%;
+  transform: (-50%,-50%);
+}
+
+.seccionUno a{
+  transition: 0.3s;
+  text-align: center;
+  width: 100%;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  font-size: 18px;
+  margin-top: 30px;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+
+.frasePrincipal {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-size: 500%;
+  font-family: 'Squada One';
+}
+
+.fraseSecundaria {
+  text-align: center;
+  color: white;
+  font-size: 250%;
+  font-family: 'Squada One';
+}
+
+.btn{
+  transition: 0.3s;
+}
+
+.btn:hover{
+  transform: scale(1.2);
+}
+
+
+.seccionDos{
+  position: relative;
+  width: 100%;
+  height: 50vh;
+}
+
+.seccionDos .fondo{
+  width: 100%;
+  height: 100%;
+  filter:alpha(opacity=20);
+  -moz-opacity:0.2;
+  opacity: 0.2;
+  padding:10px;
+  background: url(../img/textura.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+
+.seccionDos .texto{
+  background-color: transparent;
+  position: absolute;
+  font-size: 20px;
+  z-index: 2;
+  padding: 30px 38%;  
+  color: white;
+  width: 100%
+}
+
+.seccionDos .linea{
+  margin: 4.5% 38%;
+  position: absolute;
+}
+
+.seccionDos p{
+  margin: 20% 300px;
+  font-size: 18px;
+  position: absolute;
+  text-align: justify;
+  word-spacing: 15em;
+  color: white;
+
+}
+
+.seccionDos .imagenes{
+  z-index: 9;
+  position: absolute;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+}
+
+.seccionDos .imagenes .img{
+  padding: 80px 80px;
+  width: 25%;
+  transition: 0.3s;
+}
+
+.seccionDos .imagenes .img:hover{
+  transform: scale(1.1);
+}
+
+.seccionTres{
+  background-color: #C6FFDD;
+  width: 100%;
+  height: 170vh;
+}
+
+.seccionTres .blanco{
+  margin: 0 10%;
+  z-index: 9;
+  position: absolute;
+  width: 80%;
+  height: 170vh;
+  background-color: white;
+}
+
+.seccionTres .blanco h2{
+  font-family: "Cormorant Garamond";
+  font-size: 50px;
+  margin-top: 10%;
+  text-align: center;
+}
+
+.seccionTres .blanco .exposiciones{
+  margin: 40px 40px;
+}
+
+.seccionTres .blanco .exposiciones .fila{
+  display: flex;
+}
+
+.seccionTres .blanco .exposiciones .fila .columna{
+  width: 50%;
+}
+
+.seccionTres .blanco .exposiciones .fila .columna .imagen{
+  margin: 0 40px;
+  background: url(../img/piramide.jpg);
+  background-size: contain;
+  background-position: center center;
+  background-size: cover;
+  padding-bottom: 300px;
+  text-align: center;
+  color: black;
+  background-color: black;
+}
+
+.seccionTres .blanco .exposiciones .fila .columna .imagen:hover{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(../img/piramide.jpg);
+  color: white;
+}
+
+.seccionTres .blanco .exposiciones .fila .columna .texto{
+  font-family: 'Poppins';
+  text-align: justify;
+  color: black;
+}
+
+
+
+.seccionTres .blanco .eventos{
+  margin: 40px 40px;
+}
+
+.seccionTres .blanco .eventos .fila{
+  display: flex;
+}
+
+.seccionTres .blanco .eventos .fila .columna{
+  width: 50%;
+}
+
+.seccionTres .blanco .eventos .fila .columna .texto{
+  font-family: 'Roboto', sans-serif;
+  text-align: justify;
+  color: black;
+}
+
+.seccionTres .blanco h3{
+  text-align: center;
+  font-family: "Poppins";
+  font-size: 40px;
+}
+
+.seccionTres .blanco .eventos .fila .columna .imagen{
+  margin: 0 40px;
+  background: url(../img/eventos.webp);
+  background-size: contain;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 300px;
+  text-align: center;
+  color: black;
+}
+
+.seccionCuatro{
+  width: 100%;
+  position: relative;
+  width: 100%;
+  height: 110vh;
+  background-color: black;
+}
+
+.seccionCuatro .verdeMexa img{
+  
+  background-attachment: fixed;
+}
+
+footer{
+  text-align: center;
+}

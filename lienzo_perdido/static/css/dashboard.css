@@ -1,0 +1,207 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+body{
+    background-color: white;
+    font-family: 'Dosis', sans-serif;
+}
+
+.principal{
+    position: relative;
+    background-color: #C6FFDD;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.principal .cuadro{
+    margin-top: 7%;
+    width: 80%;
+    height: 70%;
+    background-color: white;
+    display: flex;
+    border-radius: 20px;
+}
+
+.header{
+    background-color: red;
+}
+
+.sidebar{
+    border-radius: 20px 0 0 20px;
+    background-color: #298021;
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    height: 100%;
+    transition: all 0.5s linear;
+}
+
+.logoDash{
+    width: 90%;
+    height: 100px;
+}
+
+.logoDash img{
+    margin: 30px 10px;
+    width: 100%;
+}
+
+.menu{
+    height: 88%;
+    width: 100%;
+    position: relative;
+    list-style: none;
+}
+
+.menu span{
+    font-size: 20px;
+}
+
+.menu a{
+    color: white;
+    text-decoration: none;
+}
+
+.selected{
+    background-color: #4ca644;
+}
+
+.menu li{
+    padding: 1rem 30px;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.5 ease-in-out;
+}
+
+.menu li:hover{
+    background-color: #76cf6e;
+}
+
+.main--content{
+    position: relative;
+    background-color: #ebe9e9;
+    width: 100%;
+    padding: 1rem;
+}
+
+.header--wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: white;
+    border: 10px;
+    padding: 10px 2rem;
+    margin-bottom: 1em;
+}
+
+.tabular--wrapper{
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.botones{
+    position: relative;
+    text-align: right;
+    padding: 5px 0 5px 5px;
+    word-spacing: 3px;
+}
+
+button{
+    border-radius: 8px;
+    color: black;
+    background-color: #D9D9D9;
+    padding: 6px 20px;
+}
+
+.table-container{
+    width: 100%;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    background: black;
+    color: white;
+}
+
+th{
+    padding: 15px;
+    text-align: left;
+}
+
+tbody{
+    background: white;
+}
+
+td{
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+tr:nth-child(even){
+    background-color: white;
+}
+
+tfoot{
+    background-color: rgba(113, 99, 186, 255);
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+tfoot td{
+    padding: 15px;
+}
+
+.botones button {
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #49ad4c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.botones .eliminar{
+    background-color: rgb(194, 20, 20);
+}
+
+.botones button:hover {
+    background-color: #2e7031;
+    color: white;
+}
+
+.botones .eliminar:hover {
+    background-color: #761616;
+    color: white;
+}
+
+.formulario-oculto {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.2s, height 0.2s;
+}
+
+.formulario-visible {
+    opacity: 1;
+    height: auto;
+    transition: opacity 0.2s, height 0.2s;
+    
+}
