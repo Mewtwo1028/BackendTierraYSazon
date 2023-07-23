@@ -28,11 +28,11 @@ def login():
         if user is None:
             
             error = 'user and/or password incorret'
-        elif not user[2].strip() == password:
+        elif not user['contra'].strip() == password:
             error = 'user and/or password incorret'
         if error is None:
             session.clear()
-            session['user_id'] = user[0]
+            session['user_id'] = user['id']
             return redirect(url_for('lienzo.dashboard'))
 
         flash(error)
