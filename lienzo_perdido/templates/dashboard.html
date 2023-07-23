@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Righteous&family=Work+Sans:wght@800&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="{{ url_for('static', filename='js/CRUD_dashboardMenu.js') }}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Dashboard</title>
     
@@ -68,7 +69,7 @@
               </div>
             </div>
             <div class="table-container">
-              <table>
+              <table id="tablaMenu">
                 <thead>
                   <tr>
                     <th>ID</th>
@@ -76,25 +77,9 @@
                     <th>Tipo</th>
                     <th>Precio</th>
                     <th>Descripción</th>
-                    <th>Cultura</th>
                   </tr>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Salbutes</td>
-                    <td>Platillo</td>
-                    <td>$100</td>
-                    <td>es un platillo tradicional de la Gastronomía de Yucatán.</td>
-                    <td>Maya</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Pozole</td>
-                    <td>Platillo</td>
-                    <td>$100</td>
-                    <td>es el favorito de muchos mexicanos</td>
-                    <td>Azteca</td>
-                  </tr>
+                  
                 </tbody>
                 </thead>
               </table>

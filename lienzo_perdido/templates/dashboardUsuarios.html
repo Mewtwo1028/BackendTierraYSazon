@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis&family=Righteous&family=Work+Sans:wght@800&display=swap" rel="stylesheet">
     <title>Dashboard</title>
+    <script src="{{ url_for('static', filename='js/CRUD_dashboardUsuarios.js') }}"></script>
 </head>
 <body>
     <header class="oscuro">
@@ -59,28 +60,19 @@
               </div>
             </div>
             <div class="table-container">
-              <table>
+              <table id="tablaUsuarios">
                 <thead>
                   <tr>
                     <th>ID</th>
                     <th>Username</th>
                     <th>Pass</th>
                   </tr>
-                  <!-- jalar datos del json -->
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Exposición de cultura Maya</td>
-                    <td>24/07/2023</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Exposición de cultura Wixárica</td>
-                    <td>25/07/2023</td>
-                  </tr>
-                </tbody>
                 </thead>
+                <tbody>
+                  <!-- jalar datos del json -->
+                </tbody>
               </table>
+              
             </div>
           </div>
 
@@ -141,5 +133,6 @@
       </div>
     </section>
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+
 </body>
 </html>

@@ -3,6 +3,8 @@ querys = [
     """
     DROP TABLE IF EXISTS public.usuario
     """,
+ 
+  
     """
         CREATE TABLE IF NOT EXISTS public.usuario
         (
@@ -89,4 +91,31 @@ querys = [
         ('santiago','12345')
     """
     
+    ,
+    
+    """
+        INSERT INTO public."tierraYSazon" (direccion) values
+        ('calle falsa 123')
+    """
+    ,
+    
+    """
+        INSERT INTO public.menu (nombre, tipo, precio, descripcion, cultura,"tierraYSazon_idSucursal") values
+        ('pozole','platillo',70, 'El platillo favorito de los mexicanos', 'Mexica',1)
+    """,
+    """
+    INSERT INTO public.menu (nombre,tipo,precio,descripcion,cultura, "tierraYSazon_idSucursal") values
+    ('quesadilla azul','comida',60,'unas ricas quesadillas azules','cora',1),
+    ('gorditas','comida',70,'unas ricas gorditas','huichol',1)
+    """,
+    """
+    INSERT INTO public."exposicionCultural" (descripcion,fecha,imagen,"tierraYSazon_idSucursal")
+    values ('banda cora','2023/7/1',null,1),
+    ('banda huichol','2023/7/1',null,1)
+    """,
+    """
+    INSERT INTO public.evento (descripcion,fecha,imagen,"tierraYSazon_idSucursal")
+    values ('banda cora','2023/7/1',null,1),
+    ('banda huichol','2023/7/1',null,1)
+    """
 ]

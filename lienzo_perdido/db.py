@@ -1,5 +1,5 @@
 import psycopg2
-
+from psycopg2.extras import RealDictCursor
 import click
 from flask import current_app,g
 from flask.cli import with_appcontext
@@ -13,7 +13,7 @@ def get_db():
             password='Codeboy1028',
             database='LIENZO_PERDIDO'
         )
-        g.c = g.db.cursor()
+        g.c = g.db.cursor(cursor_factory=RealDictCursor)
     return g.db, g.c
 
 def close_db(e=None):
