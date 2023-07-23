@@ -15,15 +15,15 @@
 <body>
     <header id="header" class="oscuro">
         <div class="logo">
-            <a href="../index.html"><img src="../img/iconoPrincipalTransparente.png" alt=""></a>
+            <a href="{{ url_for('lienzo.index') }}"><img src="{{ url_for('static', filename='img/iconoPrincipalTransparente.png')}}" alt=""></a>
         </div>
         <nav>
             <ul class="nav-links">
                 <li><a href="#" class="neg">Menú</a></li>
-                <li><a href="../html/exposicionesCulturales.html">Exposiciones culturales</a></li>
-                <li><a href="eventosMusicales.html">Eventos musicales</a></li>
-                <a href="../html/login.html" class="btnA"><button>Ingresar</button></a>
-                <li><a href="../html/about.html">Acerca de</a></li>
+                <li><a href="{{ url_for('lienzo.exposicionesCulturales') }}">Exposiciones culturales</a></li>
+                <li><a href="{{ url_for('lienzo.eventosMusicales') }}">Eventos musicales</a></li>
+                <a href="{{ url_for('auth.login') }}" class="btnA"><button>Ingresar</button></a>
+                <li><a href="{{ url_for('lienzo.about') }}">Acerca de</a></li>
             </ul>
         </nav>
     </header>

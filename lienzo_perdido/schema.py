@@ -73,7 +73,12 @@ querys = [
     """
         INSERT INTO public.usuario values
         (1,'carlos','12345')
-        INSERT INTO public.usuario values
-        (2,'osmar',12345)
     """
+    ,
+    """
+        INSERT INTO public.usuario values
+        (2,'osmar','12345')
+    """
+    
+    
 ]

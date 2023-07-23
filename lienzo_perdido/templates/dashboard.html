@@ -19,7 +19,7 @@
         <div class="logo">
             <a href="{{ url_for('lienzo.index') }}"><img src="{{ url_for('static', filename='img/iconoPrincipal.png') }}" alt=""></a>
         </div>
-        <a href="{{ url_for('auth.login') }}" class="btnA"><button>Cerrar sesión</button></a>
+        <a href="{{ url_for('auth.logout') }}" class="btnA"><button>Cerrar sesión</button></a>
     </header>
 
     <section class="principal">
@@ -42,8 +42,8 @@
             </li>
 
             <li>
-              <a href="{{ url_for('lienzo.dashboardExposiciones') }}" id="opcion-dashboard-usuarios"> 
-               CAMBIAR LA FUNCIÓN ANTERIOR CUANDO SE CREE
+              <a href="{{ url_for('lienzo.dashboardUsuarios') }}" id="opcion-dashboard-usuarios"> 
+              
                 <div id="contenido-derecha"><span>Usuarios</span></div></a>
             </li>
           </ul>

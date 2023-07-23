@@ -42,7 +42,7 @@ def dashboard():
         error = None
         
         if accion == 'insertar':
-            nombre = request.form['nombre']
+            nombre = request.form['Nombre']
             tipo = request.form['tipo']
             precio = request.form['precio']
             descripcio = request.form['descripcion']
@@ -210,7 +210,7 @@ def dashboardEventos():
     return render_template('dashboardEventos.html')
 
 #exposicion admin ----------------------------------------------------------
-@bp.route('/admin/eventos/dashboard', methods=['GET','POST'])
+@bp.route('/admin/exposiciones/dashboard', methods=['GET','POST'])
 @login_required
 def dashboardExposiciones():
     if request.method == 'POST':
@@ -290,6 +290,88 @@ def dashboardExposiciones():
                 db.commit()
                 return redirect(url_for('lienzo.dashboardExposiciones'))
     return render_template('dashboardExposiciones.html')
+
+@bp.route('/admin/usuarios/dashboard', methods=['GET','POST'])
+@login_required
+def dashboardUsuarios():
+    if request.method == 'POST':
+        accion = request.form.get('accion')
+        error = None
+        
+        if accion == 'insertar':
+            descripcio = request.form['descripcion']
+            fecha = request.form['fecha']
+            imagen = request.form['imagen']
+            sucursal = request.form['sucursal']
+
+            if not descripcio:
+                error = "La descripcion es requerida"
+            if not fecha:
+                error = "La fecha es requerida"
+            if not imagen:
+                error = "La imagen es requerida"
+            if not sucursal:
+                error = "La sucursal es requerida"
+
+            if error is not None:
+                flash(error)
+            else:
+                db, c = get_db()
+                c.execute(
+                    'INSERT INTO public."exposicionCultural"'
+                    ' (descripcion,fecha,imagen,"tierraYSazon_idSucursal") values'
+                    ' (%s,%s,%s,%s)',
+                    (descripcio,fecha,imagen,sucursal)
+                )
+                db.commit()
+                return redirect(url_for('dashboardUsuarios'))
+        elif accion == 'modificar':
+            id = request.form['id']
+            descripcio = request.form['descripcion']
+            fecha = request.form['fecha']
+            imagen = request.form['imagen']
+            sucursal = request.form['sucursal']
+
+            if not id:
+                error = "El ID es requerido"
+            if not descripcio:
+                error = "La descripcion es requerida"
+            if not fecha:
+                error = "La fecha es requerida"
+            if not imagen:
+                error = "La imagen es requerida"
+            if not sucursal:
+                error = "La sucursal es requerida"
+
+            if error is not None:
+                flash(error)
+            else:
+                db, c = get_db()
+                c.execute(
+                    'UPDATE public."exposicionCultural" SET descripcion = %s, fecha = %s'
+                    ', imagen = %s, "tierraYSazon_idSucursal" = %s'
+                    'WHERE "idExposicionCultural" = %s',
+                    (descripcio,fecha,imagen,sucursal,id)
+                )
+                db.commit()
+                return redirect(url_for('lienzo.dashboardUsuarios'))
+        elif accion == 'eliminar':
+            id = request.form['id']
+
+            if not id:
+                error = 'El ID es requerido'
+            if error is not None:
+                flash(error)
+            else:
+                db, c = get_db()
+                c.execute(
+                    'DELETE FROM public.evento WHERE "idExposicionCultural" = %s',
+                    (id,)
+                )
+                db.commit()
+                return redirect(url_for('lienzo.dashboardUsuarios'))
+    return render_template('dashboardUsuarios.html')
+
 
 #API MENU -----------------------------------------------------------------
 @bp.route('/api/menu', methods=['GET'])
