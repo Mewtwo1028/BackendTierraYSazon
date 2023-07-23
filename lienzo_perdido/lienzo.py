@@ -4,6 +4,8 @@ from flask import (
 from werkzeug.exceptions import abort
 from lienzo_perdido.db import get_db
 from .auth import login_required
+import psycopg2
+import base64
 
 bp = Blueprint('lienzo',__name__)
 
@@ -47,7 +49,7 @@ def dashboard():
             precio = request.form['precio']
             descripcio = request.form['descripcion']
             cultura = request.form['cultura']
-            sucursal = request.form['sucursal']
+            sucursal = 1#request.form['sucursal']
 
             if not nombre:
                 error = "El nombre es requerido"
@@ -75,12 +77,12 @@ def dashboard():
                 return redirect(url_for('lienzo.dashboard'))
         elif accion == 'modificar':
             id = request.form['id']
-            nombre = request.form['nombre']
+            nombre = request.form['Nombre']
             tipo = request.form['tipo']
             precio = request.form['precio']
             descripcio = request.form['descripcion']
             cultura = request.form['cultura']
-            sucursal = request.form['sucursal']
+            sucursal = 1#request.form['sucursal']
 
             if not id:
                 error = "El ID es requerido"
@@ -100,8 +102,8 @@ def dashboard():
             else:
                 db, c = get_db()
                 c.execute(
-                    'UPDATE menu SET nombre = %s, tipo = %s, precio = %s'
-                    'descripcion = %s, cultura = %s,'
+                    'UPDATE menu SET nombre = %s, tipo = %s, precio = %s, '
+                    'descripcion = %s, cultura = %s, '
                     '"tierraYSazon_idSucursal" = %s WHERE "idMenu" = %s',
                     (nombre,tipo,precio,descripcio,cultura,sucursal,id)
                 )
@@ -138,8 +140,8 @@ def dashboardEventos():
         if accion == 'insertar':
             descripcio = request.form['descripcion']
             fecha = request.form['fecha']
-            imagen = request.form['imagen']
-            sucursal = request.form['sucursal']
+            imagen = request.files['imagen']
+            sucursal = '1'#request.form['sucursal']
 
             if not descripcio:
                 error = "La descripcion es requerida"
@@ -147,9 +149,11 @@ def dashboardEventos():
                 error = "La fecha es requerida"
             if not imagen:
                 error = "La imagen es requerida"
+            else:
+                imagen_bytes = imagen.read()
             if not sucursal:
                 error = "La sucursal es requerida"
-
+           
             if error is not None:
                 flash(error)
             else:
@@ -157,7 +161,7 @@ def dashboardEventos():
                 c.execute(
                     'INSERT INTO public.evento (descripcion,fecha,imagen,"tierraYSazon_idSucursal") values'
                     '(%s,%s,%s,%s)',
-                    (descripcio,fecha,imagen,sucursal)
+                    (descripcio,fecha,psycopg2.Binary(imagen_bytes),sucursal)
                 )
                 db.commit()
                 return redirect(url_for('lienzo.dashboardEventos'))
@@ -166,7 +170,7 @@ def dashboardEventos():
             descripcio = request.form['descripcion']
             fecha = request.form['fecha']
             imagen = request.form['imagen']
-            sucursal = request.form['sucursal']
+            sucursal = '1'#request.form['sucursal']
 
             if not id:
                 error = "El ID es requerido"
@@ -176,6 +180,8 @@ def dashboardEventos():
                 error = "La fecha es requerida"
             if not imagen:
                 error = "La imagen es requerida"
+            else:
+                imagen_bytes = imagen.read()
             if not sucursal:
                 error = "La sucursal es requerida"
 
@@ -187,7 +193,7 @@ def dashboardEventos():
                     'UPDATE public.evento SET descripcion = %s, fecha = %s'
                     ', imagen = %s, "tierraYSazon_idSucursal" = %s'
                     'WHERE "idEvento" = %s',
-                    (descripcio,fecha,imagen,sucursal,id)
+                    (descripcio,fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
                 )
                 db.commit()
                 return redirect(url_for('lienzo.dashboardEventos'))
@@ -221,7 +227,7 @@ def dashboardExposiciones():
             descripcio = request.form['descripcion']
             fecha = request.form['fecha']
             imagen = request.form['imagen']
-            sucursal = request.form['sucursal']
+            sucursal = 1#request.form['sucursal']
 
             if not descripcio:
                 error = "La descripcion es requerida"
@@ -229,6 +235,8 @@ def dashboardExposiciones():
                 error = "La fecha es requerida"
             if not imagen:
                 error = "La imagen es requerida"
+            else:
+                imagen_bytes = imagen.read()
             if not sucursal:
                 error = "La sucursal es requerida"
 
@@ -240,7 +248,7 @@ def dashboardExposiciones():
                     'INSERT INTO public."exposicionCultural"'
                     ' (descripcion,fecha,imagen,"tierraYSazon_idSucursal") values'
                     ' (%s,%s,%s,%s)',
-                    (descripcio,fecha,imagen,sucursal)
+                    (descripcio,fecha,psycopg2.Binary(imagen_bytes),sucursal)
                 )
                 db.commit()
                 return redirect(url_for('dashboardExposiciones'))
@@ -249,7 +257,7 @@ def dashboardExposiciones():
             descripcio = request.form['descripcion']
             fecha = request.form['fecha']
             imagen = request.form['imagen']
-            sucursal = request.form['sucursal']
+            sucursal = 1#request.form['sucursal']
 
             if not id:
                 error = "El ID es requerido"
@@ -259,6 +267,8 @@ def dashboardExposiciones():
                 error = "La fecha es requerida"
             if not imagen:
                 error = "La imagen es requerida"
+            else:
+                imagen_bytes = imagen.read()
             if not sucursal:
                 error = "La sucursal es requerida"
 
@@ -270,7 +280,7 @@ def dashboardExposiciones():
                     'UPDATE public."exposicionCultural" SET descripcion = %s, fecha = %s'
                     ', imagen = %s, "tierraYSazon_idSucursal" = %s'
                     'WHERE "idExposicionCultural" = %s',
-                    (descripcio,fecha,imagen,sucursal,id)
+                    (descripcio,fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
                 )
                 db.commit()
                 return redirect(url_for('lienzo.dashboardExposiciones'))
@@ -284,7 +294,8 @@ def dashboardExposiciones():
             else:
                 db, c = get_db()
                 c.execute(
-                    'DELETE FROM public.evento WHERE "idExposicionCultural" = %s',
+                    'DELETE FROM public."exposicionCultural"' 
+                    ' WHERE "idExposicionCultural" = %s',
                     (id,)
                 )
                 db.commit()
@@ -299,59 +310,49 @@ def dashboardUsuarios():
         error = None
         
         if accion == 'insertar':
-            descripcio = request.form['descripcion']
-            fecha = request.form['fecha']
-            imagen = request.form['imagen']
-            sucursal = request.form['sucursal']
+            username = request.form['username']
+            password = request.form['password']
+            id = int(request.form['id'])
 
-            if not descripcio:
-                error = "La descripcion es requerida"
-            if not fecha:
-                error = "La fecha es requerida"
-            if not imagen:
-                error = "La imagen es requerida"
-            if not sucursal:
-                error = "La sucursal es requerida"
-
+            if not username:
+                error = "el Usuarios es requerido"
+            if not password:
+                error = "La contraseña es requerida"
+            if not id:
+                error = "el ID es requerido"
+            
             if error is not None:
                 flash(error)
             else:
                 db, c = get_db()
                 c.execute(
-                    'INSERT INTO public."exposicionCultural"'
-                    ' (descripcion,fecha,imagen,"tierraYSazon_idSucursal") values'
-                    ' (%s,%s,%s,%s)',
-                    (descripcio,fecha,imagen,sucursal)
+                    'INSERT INTO public.usuario'
+                    ' values (%s,%s,%s)',
+                    (id,username,password)
                 )
                 db.commit()
-                return redirect(url_for('dashboardUsuarios'))
+                return redirect(url_for('lienzo.dashboardUsuarios'))
         elif accion == 'modificar':
+            username = request.form['username']
+            password = request.form['password']
             id = request.form['id']
-            descripcio = request.form['descripcion']
-            fecha = request.form['fecha']
-            imagen = request.form['imagen']
-            sucursal = request.form['sucursal']
 
+            if not username:
+                error = "el Usuarios es requerido"
+            if not password:
+                error = "La contraseña es requerida"
             if not id:
-                error = "El ID es requerido"
-            if not descripcio:
-                error = "La descripcion es requerida"
-            if not fecha:
-                error = "La fecha es requerida"
-            if not imagen:
-                error = "La imagen es requerida"
-            if not sucursal:
-                error = "La sucursal es requerida"
-
+                error = "el ID es requerido"
+            
             if error is not None:
                 flash(error)
             else:
                 db, c = get_db()
                 c.execute(
-                    'UPDATE public."exposicionCultural" SET descripcion = %s, fecha = %s'
-                    ', imagen = %s, "tierraYSazon_idSucursal" = %s'
-                    'WHERE "idExposicionCultural" = %s',
-                    (descripcio,fecha,imagen,sucursal,id)
+                    'update public.usuario'
+                    ' SET nombre = %s, contra = %s'
+                    'WHERE id = %s',
+                    (username,password,id)
                 )
                 db.commit()
                 return redirect(url_for('lienzo.dashboardUsuarios'))
@@ -365,7 +366,7 @@ def dashboardUsuarios():
             else:
                 db, c = get_db()
                 c.execute(
-                    'DELETE FROM public.evento WHERE "idExposicionCultural" = %s',
+                    'DELETE FROM public.usuario WHERE id = %s',
                     (id,)
                 )
                 db.commit()
@@ -389,7 +390,21 @@ def eventos_api():
     query = 'SELECT * FROM  evento'
     c.execute(query)
     eventos = c.fetchall()
-    return jsonify(eventos)
+    eventos_con_imagenes = []
+    for evento in eventos:
+        if 'imagen' in evento and evento['imagen'] is not None:
+            # Acceder a la clave "imagen" de cada evento y convertir los bytes a base64
+            imagen_bytes = base64.b64encode(evento['imagen']).decode('utf-8')
+            # Crear una copia del diccionario actual y actualizar la clave "imagen"
+            evento_con_imagen = dict(evento)
+            evento_con_imagen['imagen'] = imagen_bytes
+            # Agregar el diccionario actualizado a la lista final
+            eventos_con_imagenes.append(evento_con_imagen)
+        else:
+            evento_con_imagen = dict(evento)
+            # Agregar el diccionario actualizado a la lista final
+            eventos_con_imagenes.append(evento_con_imagen)
+    return jsonify(eventos_con_imagenes)
 
 #API EXPOSICIONES -----------------------------------------------------------
 @bp.route('/api/exposiciones', methods=['GET'])
@@ -398,7 +413,21 @@ def exposiciones_api():
     query = 'SELECT * FROM  public."exposicionCultural"'
     c.execute(query)
     exposiciones = c.fetchall()
-    return jsonify(exposiciones)
+    exposiciones_con_imagenes = []
+    for exposicion in exposiciones:
+        if 'imagen' in exposicion and exposicion['imagen'] is not None:
+            # Acceder a la clave "imagen" de cada evento y convertir los bytes a base64
+            imagen_bytes = base64.b64encode(exposicion['imagen']).decode('utf-8')
+            # Crear una copia del diccionario actual y actualizar la clave "imagen"
+            exposicion_con_imagen = dict(exposicion)
+            exposicion_con_imagen['imagen'] = imagen_bytes
+            # Agregar el diccionario actualizado a la lista final
+            exposiciones_con_imagenes.append(exposicion_con_imagen)
+        else:
+            exposicion_con_imagen = dict(exposicion)
+            # Agregar el diccionario actualizado a la lista final
+            exposiciones_con_imagenes.append(exposicion_con_imagen)
+    return jsonify(exposiciones_con_imagenes)
 
 @bp.route('/api/usuarios', methods=['GET'])
 def usuarios_api():
