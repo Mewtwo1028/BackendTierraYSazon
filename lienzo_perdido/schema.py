@@ -1,4 +1,8 @@
 querys = [
+    
+    """
+    DROP TABLE IF EXISTS public.usuario
+    """,
     """
         CREATE TABLE IF NOT EXISTS public.usuario
         (
@@ -71,14 +75,18 @@ querys = [
     )
     """,
     """
-        INSERT INTO public.usuario values
-        (1,'carlos','12345')
+        INSERT INTO public.usuario (nombre, contra) values
+        ('carlos','12345')
     """
     ,
     """
-        INSERT INTO public.usuario values
-        (2,'osmar','12345')
+        INSERT INTO public.usuario (nombre, contra) values
+        ('osmar','12345')
     """
-    
+    ,
+    """
+        INSERT INTO public.usuario (nombre, contra) values
+        ('santiago','12345')
+    """
     
 ]

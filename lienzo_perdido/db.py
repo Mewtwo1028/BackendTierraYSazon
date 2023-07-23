@@ -25,7 +25,7 @@ def init_db():
     db, c = get_db()
     for i in querys:
         c.execute(i)
-    db.commit()
+        db.commit()
 
 @click.command('init-db')
 @with_appcontext

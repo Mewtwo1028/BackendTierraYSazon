@@ -2,11 +2,12 @@
 
 
 //obtener los datos de la bd
-fetch('http://10.11.4.96:5000/api/menu')
+fetch('http://127.0.0.1:5000/api/usuarios')
   .then(response => response.json())
   .then(data => {
     // Aquí puedes trabajar con los datos recibidos de la API
-    console.log(data[0]);
+     console.log(data);
+    
   })
   .catch(error => {
     // Manejo de errores en caso de que la petición falle
@@ -61,7 +62,7 @@ fetch('http://10.11.4.96:5000/api/menu')
   }
 
   //Obtener y setear el id de un renglón seleccionado para el CRUD
-  document.querySelector()
+  // document.querySelector()
 
 
   // document.querySelector("#tblEventos").addEventListener("click", (e) => {
@@ -74,4 +75,6 @@ fetch('http://10.11.4.96:5000/api/menu')
   //       console.log(document.querySelector("#idEvento").value);
   //   }
   // });
-  console.log(document.querySelector("#idEvento").value = selectedRow.children[0].textContent);
+  // console.log(document.querySelector("#idEvento").value = selectedRow.children[0].textContent);
+
+  
