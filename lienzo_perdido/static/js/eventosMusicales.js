@@ -9,7 +9,9 @@ fetch('http://127.0.0.1:5000/api/eventos')
     
 
     data.forEach((registro) => {
-      const nuevaSeccion = document.createElement('div');
+      const lineaDivisora = document.createElement('div');
+      lineaDivisora.classList.add('linea');
+      const nuevaSeccion = document.createElement('section');
       nuevaSeccion.classList.add('expo');
       const celdaNombre = document.createElement('h3');
       const celdaDescripcion = document.createElement('p');
@@ -19,10 +21,11 @@ fetch('http://127.0.0.1:5000/api/eventos')
       celdaDescripcion.textContent = registro.descripcion ? registro.descripcion.trim() : '';
       celdaFecha.textContent = registro.fecha ? registro.fecha.trim() : '';
 
+      nuevaSeccion.appendChild(lineaDivisora);
       nuevaSeccion.appendChild(celdaNombre);
       nuevaSeccion.appendChild(celdaDescripcion);
       nuevaSeccion.appendChild(celdaFecha);
-
+      
       tbody.appendChild(nuevaSeccion);
     });
   })
