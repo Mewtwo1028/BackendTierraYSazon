@@ -44,12 +44,12 @@ def dashboard():
         error = None
         
         if accion == 'insertar':
-            nombre = request.form['Nombre']
+            nombre = request.form['nombre']
             tipo = request.form['tipo']
             precio = request.form['precio']
             descripcio = request.form['descripcion']
             cultura = request.form['cultura']
-            sucursal = 1#request.form['sucursal']
+            sucursal = '1'#request.form['sucursal']
 
             if not nombre:
                 error = "El nombre es requerido"
@@ -77,7 +77,7 @@ def dashboard():
                 return redirect(url_for('lienzo.dashboard'))
         elif accion == 'modificar':
             id = request.form['id']
-            nombre = request.form['Nombre']
+            nombre = request.form['nombre']
             tipo = request.form['tipo']
             precio = request.form['precio']
             descripcio = request.form['descripcion']
@@ -138,7 +138,7 @@ def dashboardEventos():
         error = None
         
         if accion == 'insertar':
-            descripcio = ''
+            descripcio = 'descripcion'
             nombre = request.form['nombre']
             fecha = request.form['fecha']
             imagen = request.files['imagen']
@@ -154,13 +154,12 @@ def dashboardEventos():
                 error = "La imagen es requerida"
             else:
                 imagen_bytes = imagen.read()
-            if not sucursal:
-                error = "La sucursal es requerida"
-           
+            print(error)
             if error is not None:
                 flash(error)
             else:
                 db, c = get_db()
+                
                 c.execute(
                     'INSERT INTO public.evento (descripcion,nombre,fecha,imagen,"tierraYSazon_idSucursal") values'
                     '(%s,%s,%s,%s,%s)',
@@ -170,7 +169,7 @@ def dashboardEventos():
                 return redirect(url_for('lienzo.dashboardEventos'))
         elif accion == 'modificar':
             id = request.form['id']
-            descripcio = ''
+            descripcio = 'descripcion'
             nombre = request.form['nombre']
             fecha = request.form['fecha']
             imagen = request.files['imagen']
@@ -394,37 +393,6 @@ def menu_api():
     menus = c.fetchall()
     return jsonify(menus)
 
-@bp.route('/api/menu/platillo', methods=['GET'])
-def platillo_api():
-    db, c = get_db()
-    query = 'SELECT * FROM  menu WHERE tipo = \'Platillo\''
-    c.execute(query)
-    menus = c.fetchall()
-    return jsonify(menus)
-
-@bp.route('/api/menu/bebida', methods=['GET'])
-def bebida_api():
-    db, c = get_db()
-    query = 'SELECT * FROM  menu WHERE tipo = \'Bebida\''
-    c.execute(query)
-    menus = c.fetchall()
-    return jsonify(menus)
-
-@bp.route('/api/menu/entrada', methods=['GET'])
-def entrada_api():
-    db, c = get_db()
-    query = 'SELECT * FROM  menu WHERE tipo = \'Entrada\''
-    c.execute(query)
-    menus = c.fetchall()
-    return jsonify(menus)
-
-@bp.route('/api/menu/postre', methods=['GET'])
-def postre_api():
-    db, c = get_db()
-    query = 'SELECT * FROM  menu WHERE tipo = \'Postre\''
-    c.execute(query)
-    menus = c.fetchall()
-    return jsonify(menus)
 #API EVENTOS ------------------------------------------------------------------
 @bp.route('/api/eventos', methods=['GET'])
 def eventos_api():

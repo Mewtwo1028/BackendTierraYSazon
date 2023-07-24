@@ -9,7 +9,10 @@ fetch('http://127.0.0.1:5000/api/exposiciones')
     
 
     data.forEach((registro) => {
-      const nuevaSeccion = document.createElement('div');
+      const lineaDivisora = document.createElement('div');
+      lineaDivisora.classList.add('linea');
+      const nuevaSeccion = document.createElement('section');
+      nuevaSeccion.classList.add('expo');
       const celdaNombre = document.createElement('h3');
       const celdaDescripcion = document.createElement('p');
       const celdaFecha = document.createElement('p');
