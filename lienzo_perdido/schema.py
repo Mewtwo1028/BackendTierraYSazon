@@ -3,7 +3,18 @@ querys = [
     """
     DROP TABLE IF EXISTS public.usuario
     """,
- 
+    """
+    DROP TABLE IF EXISTS public."exposicionCultural"
+    """,
+    """
+    DROP TABLE IF EXISTS public.evento
+    """,
+    """
+    DROP TABLE IF EXISTS public.menu
+    """,
+    """
+    DROP TABLE IF EXISTS public."tierraYSazon"
+    """,
   
     """
         CREATE TABLE IF NOT EXISTS public.usuario
@@ -47,6 +58,7 @@ querys = [
         CREATE TABLE IF NOT EXISTS public.evento
         (
             "idEvento" serial NOT NULL,
+            nombre character(45) COLLATE pg_catalog."default",
             descripcion character(100) COLLATE pg_catalog."default" NOT NULL,
             fecha date NOT NULL,
             imagen bytea,
@@ -56,25 +68,24 @@ querys = [
                 REFERENCES public."tierraYSazon" ("idSucursal") MATCH SIMPLE
                 ON UPDATE NO ACTION
                 ON DELETE NO ACTION
-                NOT VALID
         )
     """
     ,
     """
         CREATE TABLE IF NOT EXISTS public."exposicionCultural"
-    (
-        "idExposicionCultural" serial NOT NULL,
-        descripcion character(100) COLLATE pg_catalog."default" NOT NULL,
-        fecha date NOT NULL,
-        imagen bytea,
-        "tierraYSazon_idSucursal" integer NOT NULL,
-        CONSTRAINT "exposicionCultural_pkey" PRIMARY KEY ("idExposicionCultural"),
-        CONSTRAINT "FK_EXPOSICION_CULTURAL" FOREIGN KEY ("tierraYSazon_idSucursal")
-            REFERENCES public."tierraYSazon" ("idSucursal") MATCH SIMPLE
-            ON UPDATE NO ACTION
-            ON DELETE NO ACTION
-            NOT VALID
-    )
+            (
+                "idExposicionCultural" serial NOT NULL,
+                nombre character(45) COLLATE pg_catalog."default",
+                descripcion character(100) COLLATE pg_catalog."default" NOT NULL,
+                fecha date NOT NULL,
+                imagen bytea,
+                "tierraYSazon_idSucursal" integer NOT NULL,
+                CONSTRAINT "exposicionCultural_pkey" PRIMARY KEY ("idExposicionCultural"),
+                CONSTRAINT "FK_EXPOSICION_CULTURAL" FOREIGN KEY ("tierraYSazon_idSucursal")
+                    REFERENCES public."tierraYSazon" ("idSucursal") MATCH SIMPLE
+                    ON UPDATE NO ACTION
+                    ON DELETE NO ACTION
+            )
     """,
     """
         INSERT INTO public.usuario (nombre, contra) values
@@ -144,6 +155,23 @@ querys = [
     """
     DELETE FROM public.evento
     WHERE "idEvento" >=7 AND "idEvento" <=30
+    """
+    ,
+    """
+    INSERT INTO public.menu (nombre,tipo,descripcion,precio,cultura,"tierraYSazon_idSucursal") values
+    ('Tejuino','Bebida','ef',60,'cora',1)
+    """,
+    """
+    INSERT INTO public.menu (nombre,tipo,descripcion,precio, cultura,"tierraYSazon_idSucursal") values
+    ('Menudo','Platillo','ef',60,'cora',1)
+    """,
+    """
+    INSERT INTO public.menu (nombre,tipo,descripcion,precio,cultura,"tierraYSazon_idSucursal") values
+    ('Papas','Entrada','ef',60,'cora',1)
+    """,
+    """
+    INSERT INTO public.menu (nombre,tipo,descripcion, precio,cultura,"tierraYSazon_idSucursal") values
+    ('Helado cora xD','Postre','ef',60,'cora',1)
     """
     
 ]

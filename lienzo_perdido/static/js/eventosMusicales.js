@@ -20,12 +20,7 @@ fetch('http://127.0.0.1:5000/api/eventos')
       const celdaFecha = document.createElement('p');
       celdaFecha.classList.add('fecha');
       const celdaDescripcion = document.createElement('p');
-    
       celdaNombre.textContent = registro.nombre ? registro.nombre.trim() : '';
-
-      // Provisional
-      celdaNombre.textContent = "Aquí debería ir el título";
-      //Provisional 
 
       palabraFecha.textContent = "Fecha: ";
       celdaFecha.textContent = registro.fecha ? registro.fecha.trim() : '';

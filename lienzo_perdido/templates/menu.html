@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Spline+Sans&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
     <title>Menú</title>
 </head>
 
@@ -101,8 +102,8 @@
                 </ul>     
         </div>
     </section>
-        <div class="contenedor">
-            <div class="bannerEntradas" id="entradas">
+        <div class="contenedor" id="entradas">
+            <div class="bannerEntradas">
                 <h3>Entradas</h3>
             </div>
 
@@ -205,7 +206,7 @@
           <img src="{{ url_for('static', filename='img/twt.png')}}" alt="twitter">
           <img src="{{ url_for('static', filename='img/fb.png')}}" alt="facebook">
           <img src="{{ url_for('static', filename='img/ins.png')}}" alt="">
-      </footer>
+    </footer>
 </body>
 
 </html>

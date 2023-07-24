@@ -11,7 +11,7 @@ fetch('http://127.0.0.1:5000/api/menu')
       const fila = document.createElement('tr');
       const celdaID = document.createElement('td');
       const celdaNombre = document.createElement('td');
-      const celdaDescripcion = document.createElement('td');
+
       const celdaTipo = document.createElement('td');
       const celdaPrecio = document.createElement('td');
 
@@ -19,13 +19,13 @@ fetch('http://127.0.0.1:5000/api/menu')
       celdaNombre.textContent = registro.nombre;
       celdaTipo.textContent = registro.tipo ;
       celdaPrecio.textContent = registro.precio ;
-      celdaDescripcion.textContent = registro.descripcion;
+
 
       fila.appendChild(celdaID);
       fila.appendChild(celdaNombre);
       fila.appendChild(celdaTipo);
       fila.appendChild(celdaPrecio);
-      fila.appendChild(celdaDescripcion);
+
    
 
 

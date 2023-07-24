@@ -138,13 +138,16 @@ def dashboardEventos():
         error = None
         
         if accion == 'insertar':
-            descripcio = request.form['descripcion']
+            descripcio = ''
+            nombre = request.form['nombre']
             fecha = request.form['fecha']
             imagen = request.files['imagen']
             sucursal = '1'#request.form['sucursal']
 
             if not descripcio:
                 error = "La descripcion es requerida"
+            if not nombre:
+                error = "El nombre es requerido"
             if not fecha:
                 error = "La fecha es requerida"
             if not imagen:
@@ -159,23 +162,26 @@ def dashboardEventos():
             else:
                 db, c = get_db()
                 c.execute(
-                    'INSERT INTO public.evento (descripcion,fecha,imagen,"tierraYSazon_idSucursal") values'
-                    '(%s,%s,%s,%s)',
-                    (descripcio,fecha,psycopg2.Binary(imagen_bytes),sucursal)
+                    'INSERT INTO public.evento (descripcion,nombre,fecha,imagen,"tierraYSazon_idSucursal") values'
+                    '(%s,%s,%s,%s,%s)',
+                    (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal)
                 )
                 db.commit()
                 return redirect(url_for('lienzo.dashboardEventos'))
         elif accion == 'modificar':
             id = request.form['id']
-            descripcio = request.form['descripcion']
+            descripcio = ''
+            nombre = request.form['nombre']
             fecha = request.form['fecha']
-            imagen = request.form['imagen']
+            imagen = request.files['imagen']
             sucursal = '1'#request.form['sucursal']
 
             if not id:
                 error = "El ID es requerido"
             if not descripcio:
                 error = "La descripcion es requerida"
+            if not nombre:
+                error = "El nombre es requerido"
             if not fecha:
                 error = "La fecha es requerida"
             if not imagen:
@@ -184,16 +190,15 @@ def dashboardEventos():
                 imagen_bytes = imagen.read()
             if not sucursal:
                 error = "La sucursal es requerida"
-
             if error is not None:
                 flash(error)
             else:
                 db, c = get_db()
                 c.execute(
-                    'UPDATE public.evento SET descripcion = %s, fecha = %s'
+                    'UPDATE public.evento SET descripcion = %s, nombre = %s, fecha = %s'
                     ', imagen = %s, "tierraYSazon_idSucursal" = %s'
                     'WHERE "idEvento" = %s',
-                    (descripcio,fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
+                    (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
                 )
                 db.commit()
                 return redirect(url_for('lienzo.dashboardEventos'))
@@ -225,12 +230,15 @@ def dashboardExposiciones():
         
         if accion == 'insertar':
             descripcio = request.form['descripcion']
+            nombre = request.form['nombre']
             fecha = request.form['fecha']
-            imagen = request.form['imagen']
+            imagen = request.files['imagen']
             sucursal = 1#request.form['sucursal']
 
             if not descripcio:
                 error = "La descripcion es requerida"
+            if not nombre:
+                error = "El nombre es requerido"
             if not fecha:
                 error = "La fecha es requerida"
             if not imagen:
@@ -246,15 +254,16 @@ def dashboardExposiciones():
                 db, c = get_db()
                 c.execute(
                     'INSERT INTO public."exposicionCultural"'
-                    ' (descripcion,fecha,imagen,"tierraYSazon_idSucursal") values'
-                    ' (%s,%s,%s,%s)',
-                    (descripcio,fecha,psycopg2.Binary(imagen_bytes),sucursal)
+                    ' (descripcion,nombre,fecha,imagen,"tierraYSazon_idSucursal") values'
+                    ' (%s,%s,%s,%s,%s)',
+                    (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal)
                 )
                 db.commit()
-                return redirect(url_for('dashboardExposiciones'))
+                return redirect(url_for('lienzo.dashboardExposiciones'))
         elif accion == 'modificar':
             id = request.form['id']
             descripcio = request.form['descripcion']
+            nombre = request.form['nombre']
             fecha = request.form['fecha']
             imagen = request.form['imagen']
             sucursal = 1#request.form['sucursal']
@@ -263,6 +272,8 @@ def dashboardExposiciones():
                 error = "El ID es requerido"
             if not descripcio:
                 error = "La descripcion es requerida"
+            if not nombre:
+                error = "El nombre es requerido"
             if not fecha:
                 error = "La fecha es requerida"
             if not imagen:
@@ -277,10 +288,10 @@ def dashboardExposiciones():
             else:
                 db, c = get_db()
                 c.execute(
-                    'UPDATE public."exposicionCultural" SET descripcion = %s, fecha = %s'
+                    'UPDATE public."exposicionCultural" SET descripcion = %s, nombre = %s, fecha = %s'
                     ', imagen = %s, "tierraYSazon_idSucursal" = %s'
                     'WHERE "idExposicionCultural" = %s',
-                    (descripcio,fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
+                    (descripcio,nombre, fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
                 )
                 db.commit()
                 return redirect(url_for('lienzo.dashboardExposiciones'))
@@ -383,6 +394,37 @@ def menu_api():
     menus = c.fetchall()
     return jsonify(menus)
 
+@bp.route('/api/menu/platillo', methods=['GET'])
+def platillo_api():
+    db, c = get_db()
+    query = 'SELECT * FROM  menu WHERE tipo = \'Platillo\''
+    c.execute(query)
+    menus = c.fetchall()
+    return jsonify(menus)
+
+@bp.route('/api/menu/bebida', methods=['GET'])
+def bebida_api():
+    db, c = get_db()
+    query = 'SELECT * FROM  menu WHERE tipo = \'Bebida\''
+    c.execute(query)
+    menus = c.fetchall()
+    return jsonify(menus)
+
+@bp.route('/api/menu/entrada', methods=['GET'])
+def entrada_api():
+    db, c = get_db()
+    query = 'SELECT * FROM  menu WHERE tipo = \'Entrada\''
+    c.execute(query)
+    menus = c.fetchall()
+    return jsonify(menus)
+
+@bp.route('/api/menu/postre', methods=['GET'])
+def postre_api():
+    db, c = get_db()
+    query = 'SELECT * FROM  menu WHERE tipo = \'Postre\''
+    c.execute(query)
+    menus = c.fetchall()
+    return jsonify(menus)
 #API EVENTOS ------------------------------------------------------------------
 @bp.route('/api/eventos', methods=['GET'])
 def eventos_api():
