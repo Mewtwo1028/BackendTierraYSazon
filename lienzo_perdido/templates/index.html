@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css')}}">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+  <script src="{{ url_for('static', filename='js/scrollreveal.js')}}"></script>
   <title>Tierra y sazón</title>
 </head>
 
@@ -74,7 +75,6 @@
   <section class="seccionTres">
     <div class="blanco">
       <h2>¿Qué presentamos?</h2>
-
       <section class="exposiciones">
         <div class="fila">
 
@@ -130,7 +130,7 @@
   </section>
 
   <section class="seccionCuatro">
-    <div class="verdeMexa"><img src="{{ url_for('static', filename='img/dgn.png')}}" alt=""></div>
+    <div class="verdeMexa"><img src="{{ url_for('static', filename='img/dgn - copia.png')}}" alt=""></div>
   </section>
 
   <footer>
@@ -148,6 +148,9 @@
       header.classList.toggle("abajo", window.scrollY > 0);
     })
   </script>
+
+  
+  <script src="{{ url_for('static', filename='js/index.js')}}"></script>
 
 </body>
 

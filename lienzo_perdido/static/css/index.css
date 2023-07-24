@@ -370,7 +370,7 @@ body{
 }
 
 .seccionCuatro .verdeMexa img{
-  
+  background: url(../img/dgn.png);
   background-attachment: fixed;
 }
 

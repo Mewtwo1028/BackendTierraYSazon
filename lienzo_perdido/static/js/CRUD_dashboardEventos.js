@@ -14,17 +14,23 @@ fetch('http://127.0.0.1:5000/api/eventos')
       const celdaDescripcion = document.createElement('td');
       const celdaFecha = document.createElement('td');
       const celdaImagen = document.createElement('td');
+      const imagen=document.createElement('img');
 
-      const img=document.createElement('img');
-      img.src=registro.imagen;
-      img.style.width = '50px'; 
+            // Decodificar la imagen de bytes y asignarla a la propiedad src del elemento img
+            const imageBytes = registro.imagen ? Uint8Array.from(atob(registro.imagen), c => c.charCodeAt(0)) : null;
+            if (imageBytes) {
+              const blob = new Blob([imageBytes], { type: 'image/jpeg' });
+              const imageUrl = URL.createObjectURL(blob);
+              imagen.src = imageUrl;
+              imagen.style.width='100px';
+            }
 
 
       celdaID.textContent = registro.idEvento;
       celdaNombre.textContent = registro.nombre ? registro.nombre.trim() : ''; 
       celdaDescripcion.textContent = registro.descripcion ? registro.descripcion.trim() : '';
       celdaFecha.textContent = registro.fecha ? registro.fecha.trim() : '';
-      celdaImagen.appendChild(img);
+      celdaImagen.appendChild(imagen);
 
       fila.appendChild(celdaID);
       fila.appendChild(celdaNombre);
