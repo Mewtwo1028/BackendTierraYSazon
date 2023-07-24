@@ -10,7 +10,7 @@ def get_db():
         g.db =  psycopg2.connect(
             host='localhost',
             user='postgres',
-            password='1234',
+            password='Codeboy1028',
             database='LIENZO_PERDIDO'
         )
         g.c = g.db.cursor(cursor_factory=RealDictCursor)

@@ -10,16 +10,19 @@ fetch('http://127.0.0.1:5000/api/eventos')
     data.forEach((registro) => {
       const fila = document.createElement('tr');
       const celdaID = document.createElement('td');
+      const celdaNombre = document.createElement('td');
       const celdaDescripcion = document.createElement('td');
       const celdaFecha = document.createElement('td');
       const celdaImagen = document.createElement('td');
 
       celdaID.textContent = registro.idEvento;
+      celdaNombre.textContent = registro.nombre ? registro.nombre.trim() : ''; 
       celdaDescripcion.textContent = registro.descripcion ? registro.descripcion.trim() : '';
       celdaFecha.textContent = registro.fecha ? registro.fecha.trim() : '';
       celdaImagen.textContent = registro.imagen;
 
       fila.appendChild(celdaID);
+      fila.appendChild(celdaNombre);
       fila.appendChild(celdaDescripcion);
       fila.appendChild(celdaFecha);
       fila.appendChild(celdaImagen);

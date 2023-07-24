@@ -117,5 +117,33 @@ querys = [
     INSERT INTO public.evento (descripcion,fecha,imagen,"tierraYSazon_idSucursal")
     values ('banda cora','2023/7/1',null,1),
     ('banda huichol','2023/7/1',null,1)
+    """,
+    
     """
+    UPDATE public.evento 
+    SET nombre = 'Banda cora'
+    WHERE "idEvento" = 1
+    """,
+     """
+    UPDATE public.evento 
+    SET nombre = 'Banda MS'
+    WHERE "idEvento" = 2
+    """,
+    
+     """
+    UPDATE public."exposicionCultural"
+    SET nombre = 'Mexica'
+    WHERE "idExposicionCultural" = 1
+    """,
+    
+    """
+    UPDATE public."exposicionCultural"
+    SET nombre = 'Maya'
+    WHERE "idExposicionCultural" = 2
+    """,
+    """
+    DELETE FROM public.evento
+    WHERE "idEvento" >=7 AND "idEvento" <=30
+    """
+    
 ]
