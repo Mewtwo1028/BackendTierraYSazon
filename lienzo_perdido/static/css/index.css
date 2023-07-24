@@ -120,7 +120,7 @@ body{
   background: url(../img/BBQ-food-meat-sauce_2880x1800.jpg);
   background-size: cover;
   background-position: center center;
-  background-attachment:scroll;
+  background-attachment:fixed
 }
 
 /* .seccionUno .fondo .imagen{

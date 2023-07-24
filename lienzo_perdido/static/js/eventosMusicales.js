@@ -14,18 +14,32 @@ fetch('http://127.0.0.1:5000/api/eventos')
       const nuevaSeccion = document.createElement('section');
       nuevaSeccion.classList.add('expo');
       const celdaNombre = document.createElement('h3');
-      const celdaDescripcion = document.createElement('p');
+      const alinear = document.createElement('div');
+      alinear.classList.add('alinear');
+      const palabraFecha = document.createElement('h4');
       const celdaFecha = document.createElement('p');
+      celdaFecha.classList.add('fecha');
+      const celdaDescripcion = document.createElement('p');
     
       celdaNombre.textContent = registro.nombre ? registro.nombre.trim() : '';
-      celdaDescripcion.textContent = registro.descripcion ? registro.descripcion.trim() : '';
+
+      // Provisional
+      celdaNombre.textContent = "Aquí debería ir el título";
+      //Provisional 
+
+      palabraFecha.textContent = "Fecha: ";
       celdaFecha.textContent = registro.fecha ? registro.fecha.trim() : '';
+      celdaDescripcion.textContent = registro.descripcion ? registro.descripcion.trim() : '';
 
       nuevaSeccion.appendChild(lineaDivisora);
+      nuevaSeccion.appendChild(alinear);
       nuevaSeccion.appendChild(celdaNombre);
-      nuevaSeccion.appendChild(celdaDescripcion);
-      nuevaSeccion.appendChild(celdaFecha);
+
+      alinear.appendChild(palabraFecha);
+      alinear.appendChild(celdaFecha);
       
+      nuevaSeccion.appendChild(celdaDescripcion);
+
       tbody.appendChild(nuevaSeccion);
     });
   })
