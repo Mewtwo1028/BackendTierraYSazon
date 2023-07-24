@@ -26,3 +26,9 @@ window.sr = ScrollReveal();
         distance:'-100px'
     });
 
+    sr.reveal('.intro',{
+        duration:3000,
+        origin: 'bottom',
+        distance:'-100px'
+    });
+

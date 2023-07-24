@@ -81,15 +81,7 @@
   height: 10rem;
    
 }*/
-footer h2{
-  color: whitesmoke;
-  align-items: center;
-}
 
-footer img{
-  height: 3rem;
-  width: 3rem;
-}
 /*--------------------------------------------*/
 *{
   box-sizing: border-box;
@@ -372,8 +364,4 @@ body{
 .seccionCuatro .verdeMexa img{
   background: url(../img/dgn.png);
   background-attachment: fixed;
-}
-
-footer{
-  text-align: center;
 }

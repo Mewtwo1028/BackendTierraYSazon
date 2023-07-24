@@ -30,8 +30,8 @@ fetch('http://127.0.0.1:5000/api/eventos')
       celdaNombre.textContent = registro.nombre ? registro.nombre.trim() : ''; 
       celdaDescripcion.textContent = registro.descripcion ? registro.descripcion.trim() : '';
       celdaFecha.textContent = registro.fecha ? registro.fecha.trim() : '';
+      
       celdaImagen.appendChild(imagen);
-
       fila.appendChild(celdaID);
       fila.appendChild(celdaNombre);
       fila.appendChild(celdaDescripcion);

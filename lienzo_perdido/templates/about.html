@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="{{ url_for('static', filename='img/icon.ico')}}" type="image" sizes="32x32">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css')}}">
@@ -16,7 +17,7 @@
 <body>
     <header id="header" class="oscuro" style="background-color: atransparent;">
         <div class="logo">
-          <a href="../index.html"><img src="../img/iconoPrincipalTransparente.png" alt=""></a>
+          <a href="../index.html"><img src="{{ url_for('static', filename='img/iconoPrincipalTransparente.png')}}" alt=""></a>
         </div>
         <nav>
           <ul class="nav-links">
@@ -38,15 +39,13 @@
         <div class="cuadros">
           <div class="box1">
             <section class="acerca-de">
-              <h1>Sobre Nosotros</h1>
-              <br><br><br>
               <h2>Acerca de nuestra empresa</h2>
               <p>
                 En <strong>Tierra y Sazón</strong> nos enorgullecemos de ofrecer auténticos platillos inspirados en la
                 riqueza y diversidad de la comida indígena de México.
               </p>
               <p>
-                Nuestra misión es preservar y promover la herencia culinaria y artística de las culturas indígenas, destacando la importancia
+                Nuestra <strong>misión</strong> es preservar y promover la herencia culinaria y artística de las culturas indígenas, destacando la importancia
                 de los ingredientes locales y técnicas tradicionales de cocción.
               </p>
               <p>
@@ -57,6 +56,11 @@
                 ¡Esperamos que disfrutes de una experiencia gastronómica y musical única y significativa con nosotros!
               </p>
             </section>
+            <section class="ubicacion">
+              <h2>Ubicación:</h2>
+              <div class="mapa">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7425.437920891676!2d-104.87075806259993!3d21.479541204881876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84273748f8ddedf1%3A0x33de0e4c055b4e08!2sInstituto%20Tecnol%C3%B3gico%20de%20Tepic%2C%2063175%20Tepic%2C%20Nay.!5e0!3m2!1ses-419!2smx!4v1690225370403!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </section>
           </div>
           <div class="box2">
             <section>
@@ -64,7 +68,9 @@
               <p>Tu opinión es muy importante para nosotros, envíanos tus opiniones y comentarios acerca de nuestro servicio para poder mejorar cada día.</p> 
             </section>
             <form action="">
-              <input type="text">
+              <label for="Comentario:">Comentario:</label><br>
+              <textarea id="comentario" name="comentario" rows="5" cols="37"></textarea><br>
+              <input type="submit" value="Enviar" style="width: 100%; height: 30px;">
             </form>
           </div>
         </div>

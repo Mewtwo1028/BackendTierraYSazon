@@ -205,5 +205,29 @@ tfoot td{
     opacity: 1;
     height: auto;
     transition: opacity 0.2s, height 0.2s;
-    
-}
+    padding: 20px;
+    border: 5px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .formulario-visible label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .formulario-visible button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #216e4e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }

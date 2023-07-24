@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="{{ url_for('static', filename='img/icon.ico')}}" type="image" sizes="32x32">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
@@ -60,7 +61,6 @@
           <div class="tabular--wrapper">
             <div class="main--title">
               <div class="botones">
-                <button>Leer</button>
                 <button id="toggleButton" onclick="toggleFormInsert()">Agregar</button>
                 <button id="toggleButton" onclick="toggleFormUpdate()">Modificar</button>
                 <button id="toggleButton" onclick="toggleFormDelete()" class="eliminar">Eliminar</button>

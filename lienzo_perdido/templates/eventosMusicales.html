@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.ico')}}" type="image" sizes="32x32">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,13 +13,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="{{ url_for('static', filename='js/eventosMusicales.js') }}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/scrollreveal.js')}}"></script>
     
     <title>Eventos musicales</title>
 </head>
 <body>
     <header class="oscuro">
         <div class="logo">
-            <a href="../index.html"><img src="{{ url_for('static', filename='img/iconoPrincipal.png')}}" alt=""></a>
+            <a href="{{ url_for('lienzo.index') }}"><img src="{{ url_for('static', filename='img/iconoPrincipal.png')}}" alt=""></a>
         </div>
         <nav>
             <ul class="nav-links">
@@ -37,26 +39,13 @@
         </div>
         <div class="intro">
             <img src="{{ url_for('static', filename='img/Banda Venado azul.jpg')}}" alt="" height="300" width="300">
-            <p>Sumérgete en un viaje musical sin igual mientras exploras la riqueza de las culturas prehispánicas en nuestros eventos musicales indígenas. Aquí, la música se fusiona con la historia y la cultura para ofrecerte una experiencia inigualable llena de ritmos, sonidos y conocimientos. Además de los conciertos, también ofrecemos charlas y conferencias impartidas por expertos en historia y arqueología prehispánica. Aprenderás sobre los descubrimientos más recientes, las teorías arqueológicas y las tradiciones únicas que dieron forma a estas culturas extraordinarias. Nuestro objetivo es no solo deleitar tus oídos, sino también expandir tu conocimiento y apreciación por el legado prehispánico. ¡Únete a nosotros en estos emocionantes eventos musicales que celebran la herencia indígena mexicana!</p>
+            <p><span>S</span>umérgete en un viaje musical sin igual mientras exploras la riqueza de las culturas prehispánicas en nuestros eventos musicales indígenas. Aquí, la música se fusiona con la historia y la cultura para ofrecerte una experiencia inigualable llena de ritmos, sonidos y conocimientos. Además de los conciertos, también ofrecemos charlas y conferencias impartidas por expertos en historia y arqueología prehispánica. Aprenderás sobre los descubrimientos más recientes, las teorías arqueológicas y las tradiciones únicas que dieron forma a estas culturas extraordinarias. Nuestro objetivo es no solo deleitar tus oídos, sino también expandir tu conocimiento y apreciación por el legado prehispánico. ¡Únete a nosotros en estos emocionantes eventos musicales que celebran la herencia indígena mexicana!</p>
         </div>
     </section>
 
     <div id="json">
         
     </div>   
-
-    <!-- <section class="seccionDos" id="nuevos">
-
-        <section class="expo">
-        <div class="linea"></div>
-            <div class="alinear">
-                <h4>Fecha: </h4> <p id="fecha" class="fecha">18 de Agosto sólo en cines</p>
-            </div>
-            <h3 id="titulo">Banda Cohuich</h3>
-            <p itemid="descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dignissimos voluptatum recusandae nemo labore architecto sapiente sit rerum, pariatur enim quis quia eligendi incidunt modi repudiandae, tempore, exercitationem adipisci optio! Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia libero perferendis in numquam ex itaque vel laboriosam quis cumque, quasi rem quidem neque est, at facilis sequi, nostrum aliquam. At? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ut, saepe praesentium eaque, voluptatum in voluptatibus, voluptatem est ipsa mollitia placeat beatae cum expedita nostrum dignissimos sunt rerum nihil deleniti.</p>
-            <div class="imagen" id="imagen"><img src="{{ url_for('static', filename='img/banda cohuich.webp')}}" alt=""></div>
-
-        </section> -->
 
         <section id="nuevos">
             <section class="seccionDos">
@@ -73,6 +62,8 @@
           <img src="{{ url_for('static', filename='img/fb.png')}}" alt="facebook" height="50">
           <img src="{{ url_for('static', filename='img/ins.png')}}" alt=""  height="50">
       </footer>
+
+      <script src="{{ url_for('static', filename='js/index.js')}}"></script>
     
       <script type="text/javascript">
         window.addEventListener("scroll", function () {

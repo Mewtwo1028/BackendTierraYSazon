@@ -72,3 +72,17 @@ header{
   .neg{
     font-weight: 800;
   }
+
+  
+footer{
+  text-align: center;
+}
+footer h2{
+  color: whitesmoke;
+  align-items: center;
+}
+
+footer img{
+  height: 3rem;
+  width: 3rem;
+}

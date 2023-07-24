@@ -59,7 +59,7 @@ querys = [
         (
             "idEvento" serial NOT NULL,
             nombre character(45) COLLATE pg_catalog."default",
-            descripcion character(100) COLLATE pg_catalog."default" NOT NULL,
+            descripcion character(500) COLLATE pg_catalog."default" NOT NULL,
             fecha date NOT NULL,
             imagen bytea,
             "tierraYSazon_idSucursal" integer NOT NULL,
@@ -76,7 +76,7 @@ querys = [
             (
                 "idExposicionCultural" serial NOT NULL,
                 nombre character(45) COLLATE pg_catalog."default",
-                descripcion character(100) COLLATE pg_catalog."default" NOT NULL,
+                descripcion character(500) COLLATE pg_catalog."default" NOT NULL,
                 fecha date NOT NULL,
                 imagen bytea,
                 "tierraYSazon_idSucursal" integer NOT NULL,

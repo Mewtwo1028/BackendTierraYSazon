@@ -8,14 +8,26 @@ fetch('http://127.0.0.1:5000/api/eventos')
     const tbody = tabla.querySelector('section');
 
     data.forEach((registro) => {
+      const lineaDivisora = document.createElement('div');
       const nuevaSeccion = document.createElement('section');
-      nuevaSeccion.classList.add('expo');
       const celdaNombre = document.createElement('h3');
-      const celdaDescripcion = document.createElement('p');
+      const alinear = document.createElement('div');
+      const palabraFecha = document.createElement('h4');
       const celdaFecha = document.createElement('p');
+      const celdaDescripcion = document.createElement('p');
+      const celdaImagen = document.createElement('div');
       const imagen = document.createElement('img'); // Crear elemento para la imagen
 
+      //Agregar clase a los elementos
+      lineaDivisora.classList.add('linea');
+      nuevaSeccion.classList.add('expo');
+      alinear.classList.add('alinear');
+      celdaFecha.classList.add('fecha');
+      celdaImagen.classList.add('imagen');
+
+      //Llenar elementos con contenido de la BD
       celdaNombre.textContent = registro.nombre ? registro.nombre.trim() : '';
+      palabraFecha.textContent = "Fecha: ";
       celdaDescripcion.textContent = registro.descripcion ? registro.descripcion.trim() : '';
       celdaFecha.textContent = registro.fecha ? registro.fecha.trim() : '';
 
@@ -27,10 +39,19 @@ fetch('http://127.0.0.1:5000/api/eventos')
         imagen.src = imageUrl;
       }
 
+      
+
+      nuevaSeccion.appendChild(lineaDivisora);
+      nuevaSeccion.appendChild(alinear);
       nuevaSeccion.appendChild(celdaNombre);
       nuevaSeccion.appendChild(celdaDescripcion);
-      nuevaSeccion.appendChild(celdaFecha);
-      nuevaSeccion.appendChild(imagen); // Agregar la imagen a la sección
+      nuevaSeccion.appendChild(celdaImagen);
+      celdaImagen.appendChild(imagen); // Agregar la imagen a la sección
+
+      alinear.appendChild(palabraFecha);
+      alinear.appendChild(celdaFecha);
+
+      
 
       tbody.appendChild(nuevaSeccion);
     });

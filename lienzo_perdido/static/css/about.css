@@ -12,12 +12,6 @@ body {
 
   }
 
-  /* section.acerca-de {
-    width: 100%;
-    margin: 1rem auto;
-    padding: 10rem;
-  } */
-
   .contenedorPrincipal{
     background-color: #b5b5b5;
     width: 100%;
@@ -59,14 +53,30 @@ body {
   
   .box1 {
     width: 800px;
-    height: 700px;
+    height: 900px;
     background-color: #f0f0f0;
     margin: 10px;
   }
 
+  .box1 h2{
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .acerca-de{
+    padding: 40px;
+    text-align: justify;
+  }
+
+
+  .mapa{
+    display: grid;
+    place-items: center;
+  }
+
   .box2 {
     width: 20em;
-    height: 200px;
+    height: 300px;
     background-color: #f0f0f0;
     margin: 10px;
     display: flex;

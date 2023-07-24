@@ -149,7 +149,7 @@ def dashboardEventos():
         error = None
         
         if accion == 'insertar':
-            descripcio = 'descripcion'
+            descripcio = request.form['descripcion']
             nombre = request.form['nombre']
             fecha = request.form['fecha']
             imagen = request.files['imagen']
@@ -183,7 +183,7 @@ def dashboardEventos():
                     return redirect(url_for('lienzo.dashboardEventos'))
         elif accion == 'modificar':
             id = request.form['id']
-            descripcio = 'descripcion'
+            descripcio = request.form['descripcion']
             nombre = request.form['nombre']
             fecha = request.form['fecha']
             imagen = request.files['imagen']
@@ -507,6 +507,7 @@ def exposiciones_api():
             exposiciones_con_imagenes.append(exposicion_con_imagen)
     return jsonify(exposiciones_con_imagenes)
 
+#API USUARIOS -----------------------------------------------------------
 @bp.route('/api/usuarios', methods=['GET'])
 def usuarios_api():
     db, c = get_db()

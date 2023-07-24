@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.ico')}}" type="image" sizes="32x32">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="{{ url_for('static', filename='js/exposicionesCulturales.js') }}"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/scrollreveal.js')}}"></script>
     <title>Exposiciones Culturales</title>
 </head>
 <body>
     <header class="oscuro">
         <div class="logo">
-            <a href="../index.html"><img src="{{ url_for('static', filename='img/iconoPrincipal.png')}}" alt=""></a>
+            <a href="{{ url_for('lienzo.index') }}"><img src="{{ url_for('static', filename='img/iconoPrincipal.png')}}" alt=""></a>
         </div>
         <nav>
             <ul class="nav-links">
@@ -36,7 +38,7 @@
         </div>
         <div class="intro">
             <img src="{{ url_for('static', filename='img/cultura.jpg')}}" alt="">
-            <p>Sumérgete en un viaje culinario sin igual mientras exploras la riqueza de las culturas prehispánicas en nuestro restaurante único. Aquí, la gastronomía se fusiona con la historia y la cultura para ofrecerte una experiencia inigualable llena de sabores, colores y conocimientos. Además de las exposiciones, también ofrecemos charlas y conferencias impartidas por expertos en historia y arqueología prehispánica. Aprenderás sobre los descubrimientos más recientes, las teorías arqueológicas y las costumbres únicas que dieron forma a estas culturas extraordinarias. Nuestro objetivo es no solo deleitar tu paladar, sino también expandir tu conocimiento y apreciación por el legado prehispánico.</p>
+            <p><span>S</span>umérgete en un viaje culinario sin igual mientras exploras la riqueza de las culturas prehispánicas en nuestro restaurante único. Aquí, la gastronomía se fusiona con la historia y la cultura para ofrecerte una experiencia inigualable llena de sabores, colores y conocimientos. Además de las exposiciones, también ofrecemos charlas y conferencias impartidas por expertos en historia y arqueología prehispánica. Aprenderás sobre los descubrimientos más recientes, las teorías arqueológicas y las costumbres únicas que dieron forma a estas culturas extraordinarias. Nuestro objetivo es no solo deleitar tu paladar, sino también expandir tu conocimiento y apreciación por el legado prehispánico.</p>
         </div>
     </section>
 
@@ -55,6 +57,8 @@
           <img src="{{ url_for('static', filename='img/fb.png')}}" alt="facebook" height="50">
           <img src="{{ url_for('static', filename='img/ins.png')}}" alt=""  height="50">
       </footer>
+
+      <script src="{{ url_for('static', filename='js/index.js')}}"></script>
     
       <script type="text/javascript">
         window.addEventListener("scroll", function () {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="{{ url_for('static', filename='img/icon.ico')}}" type="image" sizes="32x32">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
@@ -62,7 +63,6 @@
           <div class="tabular--wrapper">
             <div class="main--title">
               <div class="botones">
-                <button>Leer</button>
                 <button id="toggleButton" onclick="toggleFormInsert()">Agregar</button>
                 <button id="toggleButton" onclick="toggleFormUpdate()">Modificar</button>
                 <button id="toggleButton" onclick="toggleFormDelete()" class="eliminar">Eliminar</button>
@@ -94,7 +94,12 @@
             </div>
             <div>
               <label for="tipo">tipo:</label>
-              <input type="text" id="tipo" name="tipo" required>
+              <select type="text" id="tipo" name="tipo" required>
+                <option value="Entrada">Entrada</option>
+                <option value="Platillo">Platillo</option>
+                <option value="Bebida">Bebida</option>
+                <option value="Postre">Postre</option>
+            </select>
             </div>
             <div>
               <label for="precio">precio:</label>
@@ -119,7 +124,12 @@
             </div>
             <div>
               <label for="tipo">tipo:</label>
-              <input type="text" id="tipo" name="tipo" required>
+              <select type="text" id="tipo" name="tipo" required>
+                <option value="Entrada">Entrada</option>
+                <option value="Platillo">Platillo</option>
+                <option value="Bebida">Bebida</option>
+                <option value="Postre">Postre</option>
+            </select>
             </div>
             <div>
               <label for="precio">precio:</label>
