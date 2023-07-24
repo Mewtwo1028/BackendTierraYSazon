@@ -86,12 +86,8 @@
           </div>
 
         </div>
-        <div id="formulario INSERT" class="formulario-visible" hidden>
+        <div id="formulario INSERT" onsubmit="return validarFormulario()" class="formulario-visible" hidden>
           <form class="formularioInsert" method="POST" enctype="multipart/form-data">
-            <div>
-              <label for="id">ID:</label>
-              <input type="text" id="id" name="id" required>
-            </div>
             <div>
               <label for="Nombre">Nombre:</label>
               <input type="text" id="Nombre" name="Nombre" required>
@@ -103,10 +99,6 @@
             <div>
               <label for="precio">precio:</label>
               <input type="text" id="precio" name="precio" required>
-            </div>
-            <div>
-              <label for="cultura">Cultura:</label>
-              <input type="text" id="cultura" name="cultura" required>
             </div>
             <div>
               <input type="hidden" name="accion" value="insertar">
@@ -134,10 +126,6 @@
               <input type="text" id="precio" name="precio" required>
             </div>
             <div>
-              <label for="cultura">Cultura:</label>
-              <input type="text" id="cultura" name="cultura" required>
-            </div>
-            <div>
               <input type="hidden" name="accion" value="modificar">
               <button type="submit">Actualizar</button>
             </div>
@@ -160,5 +148,29 @@
       
     </section>
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script>
+      function validarFormulario() {
+          // Obtener el valor del campo numérico
+          const numeroInput = document.getElementById("precio");
+          const numero = numeroInput.value.trim();
+
+          // Verificar si el valor es numérico
+          if (!esNumero(numero)) {
+              alert("Por favor, ingrese un número válido.");
+              return false; // Evita el envío del formulario
+          }
+
+          // Aquí puedes realizar validaciones adicionales si es necesario.
+
+          return true; // Permite el envío del formulario
+      }
+
+      function esNumero(valor) {
+          // Verificar si el valor es numérico
+          // Utilizamos la función isNaN() que devuelve true si el valor no es un número.
+          // Si es un número, el resultado se negará para que devuelva true en ese caso.
+          return !isNaN(valor);
+      }
+  </script>
 </body>
 </html>

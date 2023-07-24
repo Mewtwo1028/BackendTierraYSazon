@@ -6,6 +6,7 @@ from lienzo_perdido.db import get_db
 from .auth import login_required
 import psycopg2
 import base64
+from psycopg2 import errors
 
 bp = Blueprint('lienzo',__name__)
 
@@ -44,11 +45,11 @@ def dashboard():
         error = None
         
         if accion == 'insertar':
-            nombre = request.form['nombre']
+            nombre = request.form['Nombre']
             tipo = request.form['tipo']
             precio = request.form['precio']
-            descripcio = request.form['descripcion']
-            cultura = request.form['cultura']
+            descripcio = 'descripcion'
+            cultura = 'cultura'
             sucursal = '1'#request.form['sucursal']
 
             if not nombre:
@@ -67,21 +68,25 @@ def dashboard():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'INSERT INTO menu (nombre,tipo,precio,descripcion,cultura,"tierraYSazon_idSucursal") values'
-                    '(%s,%s,%s,%s,%s,%s)',
-                    (nombre,tipo,precio,descripcio,cultura,sucursal)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboard'))
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'INSERT INTO menu (nombre,tipo,precio,descripcion,cultura,"tierraYSazon_idSucursal") values'
+                        '(%s,%s,%s,%s,%s,%s)',
+                        (nombre,tipo,precio,descripcio,cultura,sucursal)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboard'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboard'))
+
         elif accion == 'modificar':
             id = request.form['id']
-            nombre = request.form['nombre']
+            nombre = request.form['Nombre']
             tipo = request.form['tipo']
             precio = request.form['precio']
-            descripcio = request.form['descripcion']
-            cultura = request.form['cultura']
+            descripcio = 'descripcion'
+            cultura = 'cultura'
             sucursal = 1#request.form['sucursal']
 
             if not id:
@@ -100,15 +105,18 @@ def dashboard():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'UPDATE menu SET nombre = %s, tipo = %s, precio = %s, '
-                    'descripcion = %s, cultura = %s, '
-                    '"tierraYSazon_idSucursal" = %s WHERE "idMenu" = %s',
-                    (nombre,tipo,precio,descripcio,cultura,sucursal,id)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboard'))
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'UPDATE menu SET nombre = %s, tipo = %s, precio = %s, '
+                        'descripcion = %s, cultura = %s, '
+                        '"tierraYSazon_idSucursal" = %s WHERE "idMenu" = %s',
+                        (nombre,tipo,precio,descripcio,cultura,sucursal,id)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboard'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboard'))
         elif accion == 'eliminar':
             id = request.form['id']
 
@@ -117,14 +125,17 @@ def dashboard():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'DELETE FROM public.menu WHERE "idMenu" = %s',
-                    (id,)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboard'))
-            
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'DELETE FROM public.menu WHERE "idMenu" = %s',
+                        (id,)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboard'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboard'))
+
 
     return render_template('dashboard.html')
 
@@ -158,15 +169,18 @@ def dashboardEventos():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                
-                c.execute(
-                    'INSERT INTO public.evento (descripcion,nombre,fecha,imagen,"tierraYSazon_idSucursal") values'
-                    '(%s,%s,%s,%s,%s)',
-                    (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboardEventos'))
+                try:
+                    db, c = get_db()
+                    
+                    c.execute(
+                        'INSERT INTO public.evento (descripcion,nombre,fecha,imagen,"tierraYSazon_idSucursal") values'
+                        '(%s,%s,%s,%s,%s)',
+                        (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboardEventos'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboardEventos'))
         elif accion == 'modificar':
             id = request.form['id']
             descripcio = 'descripcion'
@@ -192,15 +206,18 @@ def dashboardEventos():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'UPDATE public.evento SET descripcion = %s, nombre = %s, fecha = %s'
-                    ', imagen = %s, "tierraYSazon_idSucursal" = %s'
-                    'WHERE "idEvento" = %s',
-                    (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboardEventos'))
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'UPDATE public.evento SET descripcion = %s, nombre = %s, fecha = %s'
+                        ', imagen = %s, "tierraYSazon_idSucursal" = %s'
+                        'WHERE "idEvento" = %s',
+                        (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboardEventos'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboardEventos'))
         elif accion == 'eliminar':
             id = request.form['id']
 
@@ -209,14 +226,17 @@ def dashboardEventos():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'DELETE FROM public.evento WHERE "idEvento" = %s',
-                    (id,)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboardEventos'))
-            
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'DELETE FROM public.evento WHERE "idEvento" = %s',
+                        (id,)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboardEventos'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboardEventos'))
+
     return render_template('dashboardEventos.html')
 
 #exposicion admin ----------------------------------------------------------
@@ -250,15 +270,18 @@ def dashboardExposiciones():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'INSERT INTO public."exposicionCultural"'
-                    ' (descripcion,nombre,fecha,imagen,"tierraYSazon_idSucursal") values'
-                    ' (%s,%s,%s,%s,%s)',
-                    (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboardExposiciones'))
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'INSERT INTO public."exposicionCultural"'
+                        ' (descripcion,nombre,fecha,imagen,"tierraYSazon_idSucursal") values'
+                        ' (%s,%s,%s,%s,%s)',
+                        (descripcio,nombre,fecha,psycopg2.Binary(imagen_bytes),sucursal)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboardExposiciones'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboardExposiciones'))
         elif accion == 'modificar':
             id = request.form['id']
             descripcio = request.form['descripcion']
@@ -285,15 +308,19 @@ def dashboardExposiciones():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'UPDATE public."exposicionCultural" SET descripcion = %s, nombre = %s, fecha = %s'
-                    ', imagen = %s, "tierraYSazon_idSucursal" = %s'
-                    'WHERE "idExposicionCultural" = %s',
-                    (descripcio,nombre, fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboardExposiciones'))
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'UPDATE public."exposicionCultural" SET descripcion = %s, nombre = %s, fecha = %s'
+                        ', imagen = %s, "tierraYSazon_idSucursal" = %s'
+                        'WHERE "idExposicionCultural" = %s',
+                        (descripcio,nombre, fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboardExposiciones'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboardExposiciones'))
+
         elif accion == 'eliminar':
             id = request.form['id']
 
@@ -302,14 +329,18 @@ def dashboardExposiciones():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'DELETE FROM public."exposicionCultural"' 
-                    ' WHERE "idExposicionCultural" = %s',
-                    (id,)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboardExposiciones'))
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'DELETE FROM public."exposicionCultural"' 
+                        ' WHERE "idExposicionCultural" = %s',
+                        (id,)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboardExposiciones'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboardExposiciones'))
+
     return render_template('dashboardExposiciones.html')
 
 @bp.route('/admin/usuarios/dashboard', methods=['GET','POST'])
@@ -322,23 +353,20 @@ def dashboardUsuarios():
         if accion == 'insertar':
             username = request.form['username']
             password = request.form['password']
-            id = int(request.form['id'])
 
             if not username:
                 error = "el Usuarios es requerido"
             if not password:
                 error = "La contraseña es requerida"
-            if not id:
-                error = "el ID es requerido"
             
             if error is not None:
                 flash(error)
             else:
                 db, c = get_db()
                 c.execute(
-                    'INSERT INTO public.usuario'
-                    ' values (%s,%s,%s)',
-                    (id,username,password)
+                    'INSERT INTO public.usuario (nombre,contra)'
+                    ' values (%s,%s)',
+                    (username,password)
                 )
                 db.commit()
                 return redirect(url_for('lienzo.dashboardUsuarios'))
@@ -357,15 +385,19 @@ def dashboardUsuarios():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'update public.usuario'
-                    ' SET nombre = %s, contra = %s'
-                    'WHERE id = %s',
-                    (username,password,id)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboardUsuarios'))
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'update public.usuario'
+                        ' SET nombre = %s, contra = %s'
+                        'WHERE id = %s',
+                        (username,password,id)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboardUsuarios'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboardUsuarios'))
+
         elif accion == 'eliminar':
             id = request.form['id']
 
@@ -374,13 +406,17 @@ def dashboardUsuarios():
             if error is not None:
                 flash(error)
             else:
-                db, c = get_db()
-                c.execute(
-                    'DELETE FROM public.usuario WHERE id = %s',
-                    (id,)
-                )
-                db.commit()
-                return redirect(url_for('lienzo.dashboardUsuarios'))
+                try:
+                    db, c = get_db()
+                    c.execute(
+                        'DELETE FROM public.usuario WHERE id = %s',
+                        (id,)
+                    )
+                    db.commit()
+                    return redirect(url_for('lienzo.dashboardUsuarios'))
+                except Exception as e:
+                    return redirect(url_for('lienzo.dashboardUsuarios'))
+
     return render_template('dashboardUsuarios.html')
 
 
@@ -389,6 +425,38 @@ def dashboardUsuarios():
 def menu_api():
     db, c = get_db()
     query = 'SELECT * FROM  menu'
+    c.execute(query)
+    menus = c.fetchall()
+    return jsonify(menus)
+
+@bp.route('/api/menu/platillo', methods=['GET'])
+def platillo_api():
+    db, c = get_db()
+    query = 'SELECT * FROM  menu WHERE tipo = \'Platillo\''
+    c.execute(query)
+    menus = c.fetchall()
+    return jsonify(menus)
+
+@bp.route('/api/menu/bebida', methods=['GET'])
+def bebida_api():
+    db, c = get_db()
+    query = 'SELECT * FROM  menu WHERE tipo = \'Bebida\''
+    c.execute(query)
+    menus = c.fetchall()
+    return jsonify(menus)
+
+@bp.route('/api/menu/entrada', methods=['GET'])
+def entrada_api():
+    db, c = get_db()
+    query = 'SELECT * FROM  menu WHERE tipo = \'Entrada\''
+    c.execute(query)
+    menus = c.fetchall()
+    return jsonify(menus)
+
+@bp.route('/api/menu/postre', methods=['GET'])
+def postre_api():
+    db, c = get_db()
+    query = 'SELECT * FROM  menu WHERE tipo = \'Postre\''
     c.execute(query)
     menus = c.fetchall()
     return jsonify(menus)

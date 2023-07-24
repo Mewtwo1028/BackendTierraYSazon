@@ -83,10 +83,6 @@
         <div id="formulario INSERT" class="formulario-visible" hidden>
           <form class="formularioInsert" method="POST" enctype="multipart/form-data">
             <div>
-              <label for="id">ID:</label>
-              <input type="text" id="id" name="id" disabled>
-            </div>
-            <div>
               <label for="nombre">Nombre:</label>
               <input type="text" id="nombre" name="nombre" required>
             </div>
@@ -99,12 +95,8 @@
               <input type="date" id="fecha" name="fecha" required>
             </div>
             <div>
-              <label for="cultura">Cultura:</label>
-              <input type="text" id="cultura" name="cultura" required>
-            </div>
-            <div>
               <label for="imagen">Imagen:</label>
-              <input type="file" accept="image/*" id="imagen" name="imagen" required>
+              <input type="file" accept="image/*" id="imagen" name="imagen" required alt="imagen">
             </div>
             <div>
               <input type="hidden" name="accion" value="insertar">
@@ -130,10 +122,6 @@
             <div>
               <label for="fecha">Fecha:</label>
               <input type="date" id="fecha" name="fecha">
-            </div>
-            <div>
-              <label for="cultura">Cultura:</label>
-              <input type="text" id="cultura" name="cultura">
             </div>
             <div>
               <label for="imagen">Imagen:</label>

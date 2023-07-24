@@ -153,11 +153,16 @@ h1 {
 }
 
 .menu li {
+  border-bottom: 1px solid #ccc;
   display: flex;
   justify-content: space-between;
   padding: 10px;
   background-color: #fff;
-  border-bottom: 1px solid #ccc;
+}
+
+.menu span{
+  font-size: 24px;
+  
 }
 
 .menu li:last-child {

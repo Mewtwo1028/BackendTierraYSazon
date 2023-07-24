@@ -14,10 +14,14 @@ fetch('http://127.0.0.1:5000/api/exposiciones')
       const celdaFecha = document.createElement('td');
       const celdaImagen = document.createElement('td');
 
+      const img=document.createElement('img');
+      img.src=registro.imagen;
+      img.style.width = '50px'; 
+
       celdaID.textContent = registro.idExposicionCultural;
       celdaDescripcion.textContent = registro.descripcion ? registro.descripcion.trim() : '';
       celdaFecha.textContent = registro.fecha ? registro.fecha.trim() : '';
-      celdaImagen.textContent = registro.imagen;
+      celdaImagen.appendChild(img);
 
       fila.appendChild(celdaID);
       fila.appendChild(celdaDescripcion);
