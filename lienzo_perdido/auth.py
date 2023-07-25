@@ -27,9 +27,9 @@ def login():
         user = c.fetchone()
         if user is None:
             
-            error = 'user and/or password incorret'
+            error = 'Usuario y/o contraseña incorrecta'
         elif not user['contra'].strip() == password:
-            error = 'user and/or password incorret'
+            error = 'Usuario y/o contraseña incorrecta'
         if error is None:
             session.clear()
             session['user_id'] = user['id']

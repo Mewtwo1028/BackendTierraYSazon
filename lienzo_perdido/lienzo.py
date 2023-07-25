@@ -287,7 +287,7 @@ def dashboardExposiciones():
             descripcio = request.form['descripcion']
             nombre = request.form['nombre']
             fecha = request.form['fecha']
-            imagen = request.form['imagen']
+            imagen = request.files['imagen']
             sucursal = 1#request.form['sucursal']
 
             if not id:
@@ -304,19 +304,22 @@ def dashboardExposiciones():
                 imagen_bytes = imagen.read()
             if not sucursal:
                 error = "La sucursal es requerida"
-
+            print(error)
             if error is not None:
                 flash(error)
             else:
                 try:
+                    
                     db, c = get_db()
+                    
                     c.execute(
                         'UPDATE public."exposicionCultural" SET descripcion = %s, nombre = %s, fecha = %s'
-                        ', imagen = %s, "tierraYSazon_idSucursal" = %s'
+                        ', imagen = %s, "tierraYSazon_idSucursal" = %s '
                         'WHERE "idExposicionCultural" = %s',
                         (descripcio,nombre, fecha,psycopg2.Binary(imagen_bytes),sucursal,id)
                     )
                     db.commit()
+                    print("h")
                     return redirect(url_for('lienzo.dashboardExposiciones'))
                 except Exception as e:
                     return redirect(url_for('lienzo.dashboardExposiciones'))
